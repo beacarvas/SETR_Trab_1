@@ -1,2 +1,4 @@
 # SETR_Trab_1
-nerdalhoes de setr
+Beatriz Carvas 93209
+Dario Fernandes 93135
+Guilherme Cajeira 93138
