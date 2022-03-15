@@ -1,7 +1,10 @@
 #include <stdio.h>
-#include "module1.h"
+#include "vAvg.h"
+
 void main(void)
 {
-	aFunction();
-	
+	int n = 5;
+	int vect[] = (1,2,3,4,5);
+
+	vAvg(vect);
 } 

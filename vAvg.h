@@ -6,6 +6,7 @@
 #ifndef _VAVG_H
 #define _VAVG_H
 
-void average(*vect);
+void average(int *vect);
+
 #endif
 
