@@ -1,3 +1,18 @@
+/** \file main.c
+ * \brief Pequena descrição do ficheiro
+ * 
+ * 	Este ficheiro contém a main, funcção principal do nosso trabalho
+ *  O nossa trabalho consiste em preencher um vetor com um tamanho 
+ * que o utilizador escolhe e, após o preenchimento, calcula a média
+ * e a soma dos valores desse vetor
+ * 	Neste trabalho temos 3 funções para tornar o código mais organizado.
+ * A explicação mais detalhada de cada função estão no ficheiro funcoes.h
+ * 
+ * \author Guilherme Cajeira, Beatriz Carvas e Dário Fernandes
+ * \date 17 de março de 2022
+ * \bug Não há bugs 
+ */
+
 #include <stdio.h>
 #include "funcoes.h"
 
