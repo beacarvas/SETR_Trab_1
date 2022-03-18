@@ -47,9 +47,9 @@ int main(void)
 	// -------------------------------------------------
 
 	// ------------------- 3ª FUNÇÃO -------------------
-	/* vSum(n,vect); 		Chamada da função que soma os valores do vetor
+	int sum = vSum(n,vect); 		// Chamada da função que soma os valores do vetor
 
-	*/
+	printf("Soma de todos os valores é %d\n", sum);
 	// -------------------------------------------------
 
 	return 0;

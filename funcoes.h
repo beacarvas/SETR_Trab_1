@@ -46,11 +46,11 @@ float vAvg(int n,int *vect);
 /**
  * @brief Pequena descrição da função vSum
  * 
- * (escrever a descriçao e explicaçao da funçao)
+ * A função vSum irá fazer a soma de todos os elementos do vetor.
  * 
  * @param n Representa o tamanho do vetor vect, 1º parâmetro da função
  * @param vect Representa o vetor, 2º parâmetro da função
- * @return (se retornar alguma coisa) 
+ * @return Retorna o valor da soma de todos os valores do vetor
  */
 int vSum(int n,int *vect);       // modificar caso necessário
 
