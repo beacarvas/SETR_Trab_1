@@ -22,11 +22,12 @@
 /**
  * @brief Pequena descrição da função vInit
  * 
- * (escrever a descriçao e explicaçao da funçao)
+ * A função vInit preenche um vetor de numeros naturais, com um tamanho escolhido pelo o utilizador.
  * 
- * @param n Representa o tamanho do vetor vect, 1º parâmetro da função
- * @param vect Representa o vetor, 2º parâmetro da função
- * @return (se retornar alguma coisa) 
+ * @param n Representa o tamanho do vetor vect
+ * @param vect Representa o vetor
+ * @return  
+ * @author Beatriz Carvas
  */
  
  void vInit(int n,int *vect);     // modificar caso necessário
