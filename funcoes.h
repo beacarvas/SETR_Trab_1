@@ -45,9 +45,9 @@
 float vAvg(int n,int *vect);
 
 /**
- * @brief Pequena descrição da função vSum
+ * @brief Calcula a soma dos valores de vect 
  * 
- * A função vSum irá fazer a soma de todos os elementos do vetor.
+ * A função irá fazer a soma de todos os elementos do vetor vect.
  * 
  * @param n Representa o tamanho do vetor vect, 1º parâmetro da função
  * @param vect Representa o vetor, 2º parâmetro da função
