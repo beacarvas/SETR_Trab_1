@@ -16,6 +16,8 @@ float vAvg(int n,int *vect)
         soma = soma + vect[i];
     }
 
+    //soma = vSum(n,vect);
+
     media = soma / n;
 
     return media;

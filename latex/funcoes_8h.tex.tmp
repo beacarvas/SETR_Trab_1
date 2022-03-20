@@ -10,7 +10,7 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{funcoes_8h_abcabc6ff07e70f9c378eeb3288192002}{v\+Init} (int n, int $\ast$vect;)
+void \hyperlink{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}{v\+Init} (int n, int $\ast$vect)
 \begin{DoxyCompactList}\small\item\em Pequena descrição da função v\+Init. \end{DoxyCompactList}\item 
 float \hyperlink{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}{v\+Avg} (int n, int $\ast$vect)
 \begin{DoxyCompactList}\small\item\em Pequena descrição da função v\+Avg. \end{DoxyCompactList}\item 
@@ -56,11 +56,11 @@ A função v\+Avg recebe o vetor e o valor do seu tamanho e calcula a média de 
 \begin{DoxyReturn}{Returns}
 Retorna o valor da media dos valores do vetor 
 \end{DoxyReturn}
-\mbox{\Hypertarget{funcoes_8h_abcabc6ff07e70f9c378eeb3288192002}\label{funcoes_8h_abcabc6ff07e70f9c378eeb3288192002}} 
+\mbox{\Hypertarget{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}\label{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}} 
 \index{funcoes.\+h@{funcoes.\+h}!v\+Init@{v\+Init}}
 \index{v\+Init@{v\+Init}!funcoes.\+h@{funcoes.\+h}}
 \subsubsection{\texorpdfstring{v\+Init()}{vInit()}}
-{\footnotesize\ttfamily int v\+Init (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$vect;}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void v\+Init (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{vect }\end{DoxyParamCaption})}
 
 
 
@@ -88,7 +88,7 @@ Pequena descrição da função v\+Init.
 
 Pequena descrição da função v\+Sum. 
 
-(escrever a descriçao e explicaçao da funçao)
+A função v\+Sum irá fazer a soma de todos os elementos do vetor.
 
 
 \begin{DoxyParams}{Parameters}
@@ -98,5 +98,5 @@ Pequena descrição da função v\+Sum.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-(se retornar alguma coisa) 
+Retorna o valor da soma de todos os valores do vetor 
 \end{DoxyReturn}
