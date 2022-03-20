@@ -1,8 +1,3 @@
-/*
-* This is funcoes.h
-* Version is: 1 
-*/ 
-
 /** @file funcoes.h
  * @brief Pequena descrição do ficheiro
  * 
@@ -32,15 +27,20 @@
  void vInit(int n,int *vect);     // modificar caso necessário
 
 /**
- * @brief Pequena descrição da função vAvg
+ * @brief Calcula a média de um vetor
  * 
  * A função vAvg recebe o vetor e o valor do seu tamanho e calcula a média
  * de todos os valores, somando-os um a um e no fim divide pelo número de 
- * elementos do vetor (n)
+ * elementos do vetor <b> (n) </b>
  * 
- * @param n Representa o tamanho do vetor vect, 1º parâmetro da função
- * @param vect Representa o vetor, 2º parâmetro da função
- * @return Retorna o valor da media dos valores do vetor
+ * @verbatim
+ * Função realizada por:
+ *      Guilherme Cajeira, nº93138
+ *      Email: gcajeira@ua.pt @endverbatim
+ * 
+ * @param n [1º parâmetro da função] Representa o tamanho do vetor vect 
+ * @param vect [2º parâmetro da função] Representa o vetor
+ * @return Retorna o valor da média calculada
  */
 float vAvg(int n,int *vect);
 

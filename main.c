@@ -1,8 +1,8 @@
 /** @file main.c
  * @brief Pequena descrição do ficheiro
  * 
- * 	Este ficheiro contém a main, funcção principal do nosso trabalho
- *  O nossa trabalho consiste em preencher um vetor com um tamanho 
+ * 	Este ficheiro contém a main, funcção principal do nosso trabalho. \n
+ *  O nosso trabalho consiste em preencher um vetor com um tamanho 
  * que o utilizador escolhe e, após o preenchimento, calcula a média
  * e a soma dos valores desse vetor
  * 	Neste trabalho temos 3 funções para tornar o código mais organizado.

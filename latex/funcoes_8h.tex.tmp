@@ -13,7 +13,7 @@ This graph shows which files directly or indirectly include this file\+:
 void \hyperlink{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}{v\+Init} (int n, int $\ast$vect)
 \begin{DoxyCompactList}\small\item\em Pequena descrição da função v\+Init. \end{DoxyCompactList}\item 
 float \hyperlink{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}{v\+Avg} (int n, int $\ast$vect)
-\begin{DoxyCompactList}\small\item\em Pequena descrição da função v\+Avg. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calcula a média de um vetor. \end{DoxyCompactList}\item 
 int \hyperlink{funcoes_8h_a08e429422bc68b18df9359e9bba52c39}{v\+Sum} (int n, int $\ast$vect)
 \begin{DoxyCompactList}\small\item\em Pequena descrição da função v\+Sum. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -42,19 +42,24 @@ Guilherme Cajeira, Beatriz Carvas e Dário Fernandes
 
 
 
-Pequena descrição da função v\+Avg. 
+Calcula a média de um vetor. 
 
-A função v\+Avg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor (n)
+A função v\+Avg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor {\bfseries  (n) }
+
+\begin{DoxyVerb}* Função realizada por:
+*      Guilherme Cajeira, nº93138
+*      Email: gcajeira@ua.pt \end{DoxyVerb}
+
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & Representa o tamanho do vetor vect, 1º parâmetro da função \\
+{\em n} & \mbox{[}1º parâmetro da função\mbox{]} Representa o tamanho do vetor vect \\
 \hline
-{\em vect} & Representa o vetor, 2º parâmetro da função \\
+{\em vect} & \mbox{[}2º parâmetro da função\mbox{]} Representa o vetor \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Retorna o valor da media dos valores do vetor 
+Retorna o valor da média calculada 
 \end{DoxyReturn}
 \mbox{\Hypertarget{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}\label{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}} 
 \index{funcoes.\+h@{funcoes.\+h}!v\+Init@{v\+Init}}
