@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Pequena descrição do ficheiro.  
+<p>Biblioteca das funções.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -82,19 +82,24 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a90cd127f72cbca520c4a8887c08651b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funcoes_8h.html#a90cd127f72cbca520c4a8887c08651b9">vInit</a> (int n, int *vect)</td></tr>
-<tr class="memdesc:a90cd127f72cbca520c4a8887c08651b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pequena descrição da função vInit.  <a href="#a90cd127f72cbca520c4a8887c08651b9">More...</a><br /></td></tr>
+<tr class="memdesc:a90cd127f72cbca520c4a8887c08651b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preenchimento do vetor <b>vect</b> com números naturais.  <a href="#a90cd127f72cbca520c4a8887c08651b9">More...</a><br /></td></tr>
 <tr class="separator:a90cd127f72cbca520c4a8887c08651b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f5832d87cbcc86c37d249e933ac5c9f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funcoes_8h.html#a5f5832d87cbcc86c37d249e933ac5c9f">vAvg</a> (int n, int *vect)</td></tr>
-<tr class="memdesc:a5f5832d87cbcc86c37d249e933ac5c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a média de um vetor.  <a href="#a5f5832d87cbcc86c37d249e933ac5c9f">More...</a><br /></td></tr>
+<tr class="memdesc:a5f5832d87cbcc86c37d249e933ac5c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a média do vetor <b>vect</b>  <a href="#a5f5832d87cbcc86c37d249e933ac5c9f">More...</a><br /></td></tr>
 <tr class="separator:a5f5832d87cbcc86c37d249e933ac5c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e429422bc68b18df9359e9bba52c39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="funcoes_8h.html#a08e429422bc68b18df9359e9bba52c39">vSum</a> (int n, int *vect)</td></tr>
-<tr class="memdesc:a08e429422bc68b18df9359e9bba52c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pequena descrição da função vSum.  <a href="#a08e429422bc68b18df9359e9bba52c39">More...</a><br /></td></tr>
+<tr class="memdesc:a08e429422bc68b18df9359e9bba52c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a soma dos valores do vetor <b>vect</b>  <a href="#a08e429422bc68b18df9359e9bba52c39">More...</a><br /></td></tr>
 <tr class="separator:a08e429422bc68b18df9359e9bba52c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Pequena descrição do ficheiro. </p>
-<p>Este ficheiro contém as 3 funções que são chamadas na main e a sua função é: 1º- preencher o vetor com tamanho n, definido pelo utilizador 2º- calcular a média de todos os números do vetor 3º- calcular a soma de todos os números do vetor</p>
-<dl class="section author"><dt>Author</dt><dd>Guilherme Cajeira, Beatriz Carvas e Dário Fernandes </dd></dl>
+<div class="textblock"><p>Biblioteca das funções. </p>
+<p>Este ficheiro contém as 3 funções que são chamadas na main e a sua função é: <br />
+ 1º- preencher o vetor com tamanho n, definido pelo utilizador <br />
+ 2º- calcular a média de todos os números do vetor <br />
+ 3º- calcular a soma de todos os números do vetor <br />
+ </p><dl class="section author"><dt>Author</dt><dd>Beatriz Carvas <br />
+ Dário Fernandes <br />
+ Guilherme Cajeira </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>17 de março de 2022 </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>Não há bugs </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -124,19 +129,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calcula a média de um vetor. </p>
-<p>A função vAvg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-os um a um e no fim divide pelo número de elementos do vetor <b> (n) </b></p>
-<pre class="fragment">* Função realizada por:
-*      Guilherme Cajeira, nº93138
-*      Email: gcajeira@ua.pt </pre><dl class="params"><dt>Parameters</dt><dd>
+<p>Calcula a média do vetor <b>vect</b> </p>
+<p>A função vAvg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-os um a um e no fim divide pelo número de elementos do vetor <b>n</b></p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>[1º parâmetro da função] Representa o tamanho do vetor vect </td></tr>
-    <tr><td class="paramname">vect</td><td>[2º parâmetro da função] Representa o vetor </td></tr>
+    <tr><td class="paramname">n</td><td>Representa o tamanho do vetor vect </td></tr>
+    <tr><td class="paramname">vect</td><td>Representa o vetor </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Retorna o valor da média calculada </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>Retorna o valor da média calculada</dd></dl>
+<pre class="fragment">Autor:
+ * Guilherme Cajeira, nº93138
+ * Email: gcajeira@ua.pt </pre> 
 </div>
 </div>
 <a id="a90cd127f72cbca520c4a8887c08651b9"></a>
@@ -165,17 +170,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pequena descrição da função vInit. </p>
-<p>(escrever a descriçao e explicaçao da funçao)</p>
+<p>Preenchimento do vetor <b>vect</b> com números naturais. </p>
+<p>A função vInit preenche um vetor de numeros naturais, com um tamanho escolhido pelo o utilizador.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>Representa o tamanho do vetor vect, 1º parâmetro da função </td></tr>
-    <tr><td class="paramname">vect</td><td>Representa o vetor, 2º parâmetro da função </td></tr>
+    <tr><td class="paramname">n</td><td>Representa o tamanho do vetor vect </td></tr>
+    <tr><td class="paramname">vect</td><td>Representa o vetor</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>(se retornar alguma coisa) </dd></dl>
-
+<pre class="fragment">Autor:
+ * Beatriz Carvas, nº93209
+ * Email: beatrizcarvas@ua.pt </pre> 
 </div>
 </div>
 <a id="a08e429422bc68b18df9359e9bba52c39"></a>
@@ -204,17 +210,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pequena descrição da função vSum. </p>
-<p>A função vSum irá fazer a soma de todos os elementos do vetor.</p>
+<p>Calcula a soma dos valores do vetor <b>vect</b> </p>
+<p>A função irá fazer a soma de todos os elementos do vetor <b>vect</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>Representa o tamanho do vetor vect, 1º parâmetro da função </td></tr>
-    <tr><td class="paramname">vect</td><td>Representa o vetor, 2º parâmetro da função </td></tr>
+    <tr><td class="paramname">n</td><td>Representa o tamanho do vetor vect </td></tr>
+    <tr><td class="paramname">vect</td><td>Representa o vetor </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Retorna o valor da soma de todos os valores do vetor </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>Retorna o valor da soma de todos os valores do vetor</dd></dl>
+<pre class="fragment">Autor:
+ * Dário Fernandes, nº93135
+ * Email: d.fernandes15@ua.pt </pre> 
 </div>
 </div>
 </div><!-- contents -->

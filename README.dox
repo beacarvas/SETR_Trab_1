@@ -1,13 +1,12 @@
 /**
 
-@mainpage SETR2122 Doxygen use example
+@mainpage SETR Trabalho 1 documentação
 
-@author Guilherme Cajeira, nº93138 ; Dário Fernandes, nº93135 ; Beatriz Carvas, nº93209
+@brief Descrição do projeto: \n
+O objetivo principal é calcular a média de um vetor de números naturais. \n
+Inicialmente o utilizador deve inserir o valor do tamanho do vetor. 
+De seguida, é apresentado o vetor, a soma de todos os valores e a sua média. \n 
 
-Here you should describe the app: what is the purpose, how to use,
-special rules, restrictions, ...
-Also bugs should be listed here.
-In summary, anything that you think a user needs to know should go here.
-
+@author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
 
 */

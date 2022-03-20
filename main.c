@@ -1,14 +1,14 @@
 /** @file main.c
- * @brief Pequena descrição do ficheiro
+ * @brief Descrição da main()
  * 
- * 	Este ficheiro contém a main, funcção principal do nosso trabalho. \n
+ * 	Este ficheiro contém a main, função principal do nosso trabalho. \n
  *  O nosso trabalho consiste em preencher um vetor com um tamanho 
  * que o utilizador escolhe e, após o preenchimento, calcula a média
  * e a soma dos valores desse vetor
  * 	Neste trabalho temos 3 funções para tornar o código mais organizado.
  * A explicação mais detalhada de cada função estão no ficheiro funcoes.h
  * 
- * @author Guilherme Cajeira, Beatriz Carvas e Dário Fernandes
+ * @author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
  * @date 17 de março de 2022
  * @bug Não há bugs 
  */
@@ -16,6 +16,18 @@
 // Includes
 #include <stdio.h>
 #include "funcoes.h"
+
+/** 
+ * @brief Descrição da main()
+ * 
+ * Inicialmente é definido pelo utilizador o tamanho **n** do vetor a trabalhar.
+ * É inicializado o vetor **vect** e chamada a função vInit(), que preenche o vetor.
+ * Depois são chamadas as funções vSum() e vAvg(), que calculam a soma e a média dos 
+ * valores do vetor.
+ * Por último, são feitos os prints dos resultados
+ * 
+ * @return Return 0 
+ */
 
 int main(void)
 {
