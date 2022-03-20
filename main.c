@@ -21,37 +21,35 @@ int main(void)
 {
 	int n = 0;		// tamanho do vetor, que é escolhido pelo utilizador
 
-	printf("Qual o tamanho do vetor?");
+	printf("Qual o tamanho do vetor? ");
 	scanf("%d",&n);
 
 	int vect[n];	// vetor, inicialmente vazio com tamanho n
 
 	// ------------------- 1ª FUNÇÃO -------------------
-	/* vInit(n,vect);		Chamada da função vInit que preenche o vetor
-
-	-> Exemplo de preenchimento de um vetor (melhorar)
-	for(int i=0;i<n;i++)
-	{
-		printf("Quais os números do vetor vect?");
-		scanf("%d",&vect[i]);
-	}
-	*/
-	// --------------------------------------------------
-
 	vInit(n , vect);
 
+	printf("Vetor = ");
+	for(int i=0;i<n-1;i++)
+	{
+		printf("%d , ",vect[i]);
+	}
+	printf("%d",vect[n-1]);
+	printf("\n");
+	// --------------------------------------------------	
+
 	// ------------------- 2ª FUNÇÃO -------------------
+	int sum = vSum(n,vect); 		// Chamada da função que soma os valores do vetor
+
+	printf("Soma de todos os valores é %d\n", sum);
+	// -------------------------------------------------
+
+	// ------------------- 3ª FUNÇÃO -------------------
 	float media = 0;
 
 	media = vAvg(n,vect);		// Função que faz a média do vetor escolhido
 
 	printf("A média do vetor é igual a %4.2f \n", media);
-	// -------------------------------------------------
-
-	// ------------------- 3ª FUNÇÃO -------------------
-	int sum = vSum(n,vect); 		// Chamada da função que soma os valores do vetor
-
-	printf("Soma de todos os valores é %d\n", sum);
 	// -------------------------------------------------
 
 	return 0;
