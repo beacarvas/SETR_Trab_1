@@ -28,7 +28,8 @@
  * @param vect Representa o vetor, 2º parâmetro da função
  * @return (se retornar alguma coisa) 
  */
-int vInit(int n,int *vect;);     // modificar caso necessário
+ 
+ void vInit(int n,int *vect);     // modificar caso necessário
 
 /**
  * @brief Pequena descrição da função vAvg
