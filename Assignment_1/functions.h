@@ -33,7 +33,7 @@
     * Beatriz Carvas, nº93209
     * Email: beatrizcarvas@ua.pt @endverbatim
  */
-    void MySAGInit(int N,int *stream);
+    bool MySAGInit(int N,int *stream);
 
 /**
  * @brief Preenchimento do módulo **stream** com números naturais

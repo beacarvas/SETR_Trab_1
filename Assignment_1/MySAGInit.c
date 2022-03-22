@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include "functions.h"
 
-//extern int N;
-//extern int stream[N] ;
 
 int stream[MAXSIZE];
 
-int MySAGInit(int N, int *stream)
+bool MySAGInit(int N, int *stream)
 {
     if (N <= MAXSIZE)
     {
@@ -14,11 +12,11 @@ int MySAGInit(int N, int *stream)
         {
             stream[i] = 0;
         }
-        return 1;
+        return TRUE;
     }
     else
     {   
-        return -1;
+        return FALSE;
     }
     
 }
