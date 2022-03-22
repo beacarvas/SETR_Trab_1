@@ -97,7 +97,7 @@
  * elementos do vetor **n**
  * 
  * @param N Representa o tamanho do módulo 
- * @param vect Representa o módulo
+ * @param stream Representa o módulo
  * @return Retorna o valor da média calculada
  * 
  * @verbatim
@@ -115,6 +115,7 @@
  * 
  * @param N Representa o tamanho do módulo
  * @param stream Representa o módulo
+ * @param x Representa o valor cuja frequência no módulo se pretende observar
  * @return Retorna o número de vezes que um certo valor aparece no módulo
  * 
  * @verbatim

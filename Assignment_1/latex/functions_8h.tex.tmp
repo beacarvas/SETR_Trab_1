@@ -1,5 +1,5 @@
-\hypertarget{functions_8h}{}\section{functions.\+h File Reference}
-\label{functions_8h}\index{functions.\+h@{functions.\+h}}
+\hypertarget{functions_8h}{}\doxysection{functions.\+h File Reference}
+\label{functions_8h}\index{functions.h@{functions.h}}
 
 
 Biblioteca das funções.  
@@ -10,32 +10,33 @@ Include dependency graph for functions.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
 % FIG 1
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{M\+A\+X\+S\+I\+ZE}~100
+\mbox{\Hypertarget{functions_8h_a2a37b4217917105aac7557862ccc19c3}\label{functions_8h_a2a37b4217917105aac7557862ccc19c3}} 
+\#define \mbox{\hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{MAXSIZE}}~100
 \begin{DoxyCompactList}\small\item\em Tamanho máximo do módulo admitido. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{functions_8h_ab09575d101f698259cdeba949626e2ad}{My\+S\+A\+G\+Init} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream})
-\begin{DoxyCompactList}\small\item\em Criação e inicialização do módulo {\bfseries stream} \end{DoxyCompactList}\item 
-void \hyperlink{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}{My\+S\+A\+G\+Insert} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream})
-\begin{DoxyCompactList}\small\item\em Preenchimento do módulo {\bfseries stream} com números naturais. \end{DoxyCompactList}\item 
-int \hyperlink{functions_8h_ad336b859e0fb56f7870d15b8b283a426}{My\+S\+A\+G\+Max} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream})
-\begin{DoxyCompactList}\small\item\em Devolve o valor máximo do módulo {\bfseries stream} \end{DoxyCompactList}\item 
-int \hyperlink{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}{My\+S\+A\+G\+Min} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream})
-\begin{DoxyCompactList}\small\item\em Devolve o valor mínimo do módulo {\bfseries stream} \end{DoxyCompactList}\item 
-int \hyperlink{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}{My\+S\+A\+G\+Avg} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream})
-\begin{DoxyCompactList}\small\item\em Calcula a média do módulo {\bfseries stream} \end{DoxyCompactList}\item 
-int \hyperlink{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}{My\+S\+A\+G\+Freq} (int N, int $\ast$\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}, int x)
-\begin{DoxyCompactList}\small\item\em Verificar o número de vezes que um certo valor foi inserido no módulo {\bfseries stream} \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{functions_8h_ab09575d101f698259cdeba949626e2ad}{My\+SAGInit}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}})
+\begin{DoxyCompactList}\small\item\em Criação e inicialização do módulo {\bfseries{stream}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}{My\+SAGInsert}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}})
+\begin{DoxyCompactList}\small\item\em Preenchimento do módulo {\bfseries{stream}} com números naturais. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_ad336b859e0fb56f7870d15b8b283a426}{My\+SAGMax}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}})
+\begin{DoxyCompactList}\small\item\em Devolve o valor máximo do módulo {\bfseries{stream}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}{My\+SAGMin}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}})
+\begin{DoxyCompactList}\small\item\em Devolve o valor mínimo do módulo {\bfseries{stream}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}{My\+SAGAvg}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}})
+\begin{DoxyCompactList}\small\item\em Calcula a média do módulo {\bfseries{stream}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}{My\+SAGFreq}} (int N, int $\ast$\mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}}, int x)
+\begin{DoxyCompactList}\small\item\em Verificar o número de vezes que um certo valor foi inserido no módulo {\bfseries{stream}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Biblioteca das funções. 
 
-Este ficheiro contém as 6 funções que são chamadas na main (\hyperlink{test__app_8c}{test\+\_\+app.\+c}), sendo a sua função\+: ~\newline
+Este ficheiro contém as 6 funções que são chamadas na main (\mbox{\hyperlink{test__app_8c}{test\+\_\+app.\+c}}), sendo a sua função\+: ~\newline
  1º-\/ Criar e inicializar o módulo ~\newline
  2º-\/ Inserir elementos no módulo criado ~\newline
  3º-\/ Identificar o valor máximo contido no módulo ~\newline
@@ -51,59 +52,21 @@ Beatriz Carvas ~\newline
 22 de março de 2022 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Bug}
-\item[\hyperlink{bug__bug000001}{Bug}]Não há bugs \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]Não há bugs \end{DoxyRefDesc}
 
 
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{functions_8h_a2a37b4217917105aac7557862ccc19c3}\label{functions_8h_a2a37b4217917105aac7557862ccc19c3}} 
-\index{functions.\+h@{functions.\+h}!M\+A\+X\+S\+I\+ZE@{M\+A\+X\+S\+I\+ZE}}
-\index{M\+A\+X\+S\+I\+ZE@{M\+A\+X\+S\+I\+ZE}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{M\+A\+X\+S\+I\+ZE}{MAXSIZE}}
-{\footnotesize\ttfamily \#define M\+A\+X\+S\+I\+ZE~100}
-
-
-
-Tamanho máximo do módulo admitido. 
-
-
-
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}\label{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Avg@{My\+S\+A\+G\+Avg}}
-\index{My\+S\+A\+G\+Avg@{My\+S\+A\+G\+Avg}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Avg()}{MySAGAvg()}}
-{\footnotesize\ttfamily int My\+S\+A\+G\+Avg (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
+\index{functions.h@{functions.h}!MySAGAvg@{MySAGAvg}}
+\index{MySAGAvg@{MySAGAvg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGAvg()}{MySAGAvg()}}
+{\footnotesize\ttfamily int My\+SAGAvg (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
 
 
 
-Calcula a média do módulo {\bfseries stream} 
+Calcula a média do módulo {\bfseries{stream}} 
 
-A função My\+S\+A\+G\+Avg recebe o módulo e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor {\bfseries n}
-
-
-\begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
-\hline
-{\em vect} & Representa o módulo \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Retorna o valor da média calculada
-\end{DoxyReturn}
-\begin{DoxyVerb}Autor:
- * Guilherme Cajeira, nº93138
- * Email: gcajeira@ua.pt \end{DoxyVerb}
- \mbox{\Hypertarget{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}\label{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Freq@{My\+S\+A\+G\+Freq}}
-\index{My\+S\+A\+G\+Freq@{My\+S\+A\+G\+Freq}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Freq()}{MySAGFreq()}}
-{\footnotesize\ttfamily int My\+S\+A\+G\+Freq (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream,  }\item[{int}]{x }\end{DoxyParamCaption})}
-
-
-
-Verificar o número de vezes que um certo valor foi inserido no módulo {\bfseries stream} 
-
-A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o número de ocorrẽncias de um dado valor. O contador é incrementado cada vez que uma ocorrência é observada.
+A função My\+SAGAvg recebe o módulo e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor {\bfseries{n}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -113,23 +76,50 @@ A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o número de oc
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+Retorna o valor da média calculada
+\end{DoxyReturn}
+\begin{DoxyVerb}Autor:
+ * Guilherme Cajeira, nº93138
+ * Email: gcajeira@ua.pt \end{DoxyVerb}
+ \mbox{\Hypertarget{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}\label{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}} 
+\index{functions.h@{functions.h}!MySAGFreq@{MySAGFreq}}
+\index{MySAGFreq@{MySAGFreq}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGFreq()}{MySAGFreq()}}
+{\footnotesize\ttfamily int My\+SAGFreq (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Verificar o número de vezes que um certo valor foi inserido no módulo {\bfseries{stream}} 
+
+A função My\+SAGMax percorre todo o módulo e identifica o número de ocorrẽncias de um dado valor. O contador é incrementado cada vez que uma ocorrência é observada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Representa o tamanho do módulo \\
+\hline
+{\em stream} & Representa o módulo \\
+\hline
+{\em x} & Representa o valor cuja frequência no módulo se pretende observar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 Retorna o número de vezes que um certo valor aparece no módulo
 \end{DoxyReturn}
 \begin{DoxyVerb}Autor:
  * Dário Fernandes, nº93135
  * Email: d.fernandes15@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{functions_8h_ab09575d101f698259cdeba949626e2ad}\label{functions_8h_ab09575d101f698259cdeba949626e2ad}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Init@{My\+S\+A\+G\+Init}}
-\index{My\+S\+A\+G\+Init@{My\+S\+A\+G\+Init}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Init()}{MySAGInit()}}
-{\footnotesize\ttfamily bool My\+S\+A\+G\+Init (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
+\index{functions.h@{functions.h}!MySAGInit@{MySAGInit}}
+\index{MySAGInit@{MySAGInit}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGInit()}{MySAGInit()}}
+{\footnotesize\ttfamily bool My\+SAGInit (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
 
 
 
-Criação e inicialização do módulo {\bfseries stream} 
+Criação e inicialização do módulo {\bfseries{stream}} 
 
-A função My\+S\+A\+G\+Init cria e inicializa o módulo, com um tamanho escolhido pelo o utilizador. ~\newline
-O tamanho do módulo escolhido não deve exceder o limite máximo imposto {\bfseries M\+A\+X\+S\+I\+ZE}.
+A função My\+SAGInit cria e inicializa o módulo, com um tamanho escolhido pelo o utilizador. ~\newline
+O tamanho do módulo escolhido não deve exceder o limite máximo imposto {\bfseries{MAXSIZE}}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -142,16 +132,16 @@ O tamanho do módulo escolhido não deve exceder o limite máximo imposto {\bfse
  * Beatriz Carvas, nº93209
  * Email: beatrizcarvas@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}\label{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Insert@{My\+S\+A\+G\+Insert}}
-\index{My\+S\+A\+G\+Insert@{My\+S\+A\+G\+Insert}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Insert()}{MySAGInsert()}}
-{\footnotesize\ttfamily void My\+S\+A\+G\+Insert (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
+\index{functions.h@{functions.h}!MySAGInsert@{MySAGInsert}}
+\index{MySAGInsert@{MySAGInsert}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGInsert()}{MySAGInsert()}}
+{\footnotesize\ttfamily void My\+SAGInsert (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
 
 
 
-Preenchimento do módulo {\bfseries stream} com números naturais. 
+Preenchimento do módulo {\bfseries{stream}} com números naturais. 
 
-A função My\+S\+A\+G\+Insert é responsável por preencher o módulo criado com numeros naturais.
+A função My\+SAGInsert é responsável por preencher o módulo criado com numeros naturais.
 
 
 \begin{DoxyParams}{Parameters}
@@ -164,16 +154,16 @@ A função My\+S\+A\+G\+Insert é responsável por preencher o módulo criado co
  * Beatriz Carvas, nº93209
  * Email: beatrizcarvas@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{functions_8h_ad336b859e0fb56f7870d15b8b283a426}\label{functions_8h_ad336b859e0fb56f7870d15b8b283a426}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Max@{My\+S\+A\+G\+Max}}
-\index{My\+S\+A\+G\+Max@{My\+S\+A\+G\+Max}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Max()}{MySAGMax()}}
-{\footnotesize\ttfamily int My\+S\+A\+G\+Max (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
+\index{functions.h@{functions.h}!MySAGMax@{MySAGMax}}
+\index{MySAGMax@{MySAGMax}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGMax()}{MySAGMax()}}
+{\footnotesize\ttfamily int My\+SAGMax (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
 
 
 
-Devolve o valor máximo do módulo {\bfseries stream} 
+Devolve o valor máximo do módulo {\bfseries{stream}} 
 
-A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o valor máximo presente.
+A função My\+SAGMax percorre todo o módulo e identifica o valor máximo presente.
 
 
 \begin{DoxyParams}{Parameters}
@@ -189,16 +179,16 @@ Retorna o o valor máximo presente no módulo
  * Dário Fernandes, nº93135
  * Email: d.fernandes15@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}\label{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}} 
-\index{functions.\+h@{functions.\+h}!My\+S\+A\+G\+Min@{My\+S\+A\+G\+Min}}
-\index{My\+S\+A\+G\+Min@{My\+S\+A\+G\+Min}!functions.\+h@{functions.\+h}}
-\subsubsection{\texorpdfstring{My\+S\+A\+G\+Min()}{MySAGMin()}}
-{\footnotesize\ttfamily int My\+S\+A\+G\+Min (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
+\index{functions.h@{functions.h}!MySAGMin@{MySAGMin}}
+\index{MySAGMin@{MySAGMin}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MySAGMin()}{MySAGMin()}}
+{\footnotesize\ttfamily int My\+SAGMin (\begin{DoxyParamCaption}\item[{int}]{N,  }\item[{int $\ast$}]{stream }\end{DoxyParamCaption})}
 
 
 
-Devolve o valor mínimo do módulo {\bfseries stream} 
+Devolve o valor mínimo do módulo {\bfseries{stream}} 
 
-A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o valor mínimo presente.
+A função My\+SAGMax percorre todo o módulo e identifica o valor mínimo presente.
 
 
 \begin{DoxyParams}{Parameters}
