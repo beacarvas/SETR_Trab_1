@@ -20,7 +20,11 @@
 #define _FUNCTIONS_H
 
 
-#define MAXSIZE 100  // Tamanho máximo do módolo admitido
+/** @brief Tamanho máximo do módulo admitido
+ * 
+ */
+
+#define MAXSIZE 100  
 
 /**
  * @brief Criação e inicialização do módulo **stream**

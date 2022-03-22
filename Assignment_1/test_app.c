@@ -17,7 +17,16 @@
 // Includes
 #include <stdio.h>
 #include "functions.h"
-#include <stdbool.h>
+
+/** @brief Módulo de números inteiros
+ * 
+ * O utilizador, após escolher o tamanho do módulo **stream**, este é preenchido
+ * com valores random. \n
+ * Este módulo **stream** é utilizado em todo o projeto.
+ * 
+ */
+ 
+extern int stream[MAXSIZE];
 
 /** 
  * @brief Descrição da test_app()
@@ -33,8 +42,6 @@
  * 
  * @return Return 0 
  */
-
-extern int stream[MAXSIZE];
 
 int main(void)
 {
