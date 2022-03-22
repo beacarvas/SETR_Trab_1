@@ -4,8 +4,8 @@
 
 void MySAGInsert(int N,int *stream)
 {
-   for (int i=0; i < N; i++)
+   for(int i=0;i<N;i++)
    {
-       stream[i] = i+1;
+       stream[i] = rand() % (2*N);
    }
 }

@@ -34,7 +34,7 @@
  * @return Return 0 
  */
 
-extern int stream[];
+extern int stream[MAXSIZE];
 
 int main(void)
 {
@@ -43,10 +43,10 @@ int main(void)
 	printf("Qual o tamanho do módulo? ");
 	scanf("%d",&N);
 
-	MySAGInit(N,stream);
+	int init = MySAGInit(N,stream);
 
-	//if (init == true)
-	//{
+	if (init == true)
+	{
 		MySAGInsert(N,stream);
 		printf("Stream = ");
 		for(int i=0;i<N-1;i++)
@@ -77,9 +77,9 @@ int main(void)
 			printf("Não há nenhum número no módulo igual a %d \n",x);
 		else 
 			printf("O número %d existe %d vezes no módulo \n",x,freq);
-	//}
-	//else
-	//	printf("ERROR- MAXSIZE foi ultrapassado \n");
+	}
+	else
+		printf("ERROR- MAXSIZE foi ultrapassado \n");
 
 
 	return 0;
