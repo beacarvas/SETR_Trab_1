@@ -14,11 +14,13 @@
  * @bug Não há bugs 
  */
 
+#include <stdbool.h>
+
 #ifndef _FUNCTIONS_H
 #define _FUNCTIONS_H
 
 
-#define MAXSIZE 100  // Tamanho máximo do módolo admitido
+//#define MAXSIZE 100  // Tamanho máximo do módolo admitido
 
 /**
  * @brief Criação e inicialização do módulo **stream**
@@ -34,7 +36,7 @@
     * Beatriz Carvas, nº93209
     * Email: beatrizcarvas@ua.pt @endverbatim
  */
-    bool MySAGInit(int N,int *stream);
+    void MySAGInit(int N,int *stream);
 
 /**
  * @brief Preenchimento do módulo **stream** com números naturais
