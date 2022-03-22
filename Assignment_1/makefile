@@ -1,6 +1,13 @@
 # Makefile with variables
 P = test_app
 OBJECTS = test_app.o MySAGInit.o MySAGInsert.o MySAGMax.o MySAGMin.o MySAGAvg.o MySAGFreq.o
+CFLAGS = -g -Wall -O3
+LDLIBS = 
+CC = gcc
+
+# Generate application
+$(P): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(P) $(OBJECTS)
 
 # Generate MySAGInit.o
 MySAGInit.o: MySAGInit.c functions.h
