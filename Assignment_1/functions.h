@@ -17,6 +17,7 @@
 #ifndef _FUNCTIONS_H
 #define _FUNCTIONS_H
 
+
 #define MAXSIZE 100  // Tamanho máximo do módolo admitido
 
 /**

@@ -17,6 +17,7 @@
 // Includes
 #include <stdio.h>
 #include "functions.h"
+#include <stdbool.h>
 
 /** 
  * @brief Descrição da test_app()
@@ -44,7 +45,7 @@ int main(void)
 
 	bool init = MySAGInit(N,stream);
 
-	if (init == TRUE)
+	if (init == true)
 	{
 		MySAGInsert(N,stream);
 		printf("Stream = ");

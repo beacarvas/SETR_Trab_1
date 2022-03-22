@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
-
+#include <stdbool.h>
 
 int stream[MAXSIZE];
 
@@ -12,11 +12,11 @@ bool MySAGInit(int N, int *stream)
         {
             stream[i] = 0;
         }
-        return TRUE;
+        return true;
     }
     else
     {   
-        return FALSE;
+        return false;
     }
     
 }
