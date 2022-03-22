@@ -4,6 +4,7 @@
 //extern int N;
 //extern int stream[N] ;
 
+int stream[];
 
 void MySAGInit(int N, int *stream)
 {
