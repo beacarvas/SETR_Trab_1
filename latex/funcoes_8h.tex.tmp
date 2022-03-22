@@ -1,5 +1,5 @@
-\hypertarget{funcoes_8h}{}\section{funcoes.\+h File Reference}
-\label{funcoes_8h}\index{funcoes.\+h@{funcoes.\+h}}
+\hypertarget{funcoes_8h}{}\doxysection{funcoes.\+h File Reference}
+\label{funcoes_8h}\index{funcoes.h@{funcoes.h}}
 
 
 Biblioteca das funções.  
@@ -7,18 +7,18 @@ Biblioteca das funções.
 
 This graph shows which files directly or indirectly include this file\+:
 % FIG 0
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}{v\+Init} (int n, int $\ast$vect)
-\begin{DoxyCompactList}\small\item\em Preenchimento do vetor {\bfseries vect} com números naturais. \end{DoxyCompactList}\item 
-float \hyperlink{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}{v\+Avg} (int n, int $\ast$vect)
-\begin{DoxyCompactList}\small\item\em Calcula a média do vetor {\bfseries vect} \end{DoxyCompactList}\item 
-int \hyperlink{funcoes_8h_a08e429422bc68b18df9359e9bba52c39}{v\+Sum} (int n, int $\ast$vect)
-\begin{DoxyCompactList}\small\item\em Calcula a soma dos valores do vetor {\bfseries vect} \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}{v\+Init}} (int n, int $\ast$vect)
+\begin{DoxyCompactList}\small\item\em Preenchimento do vetor {\bfseries{vect}} com números naturais. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}{v\+Avg}} (int n, int $\ast$vect)
+\begin{DoxyCompactList}\small\item\em Calcula a média do vetor {\bfseries{vect}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{funcoes_8h_a08e429422bc68b18df9359e9bba52c39}{v\+Sum}} (int n, int $\ast$vect)
+\begin{DoxyCompactList}\small\item\em Calcula a soma dos valores do vetor {\bfseries{vect}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Biblioteca das funções. 
 
 Este ficheiro contém as 3 funções que são chamadas na main e a sua função é\+: ~\newline
@@ -34,21 +34,21 @@ Beatriz Carvas ~\newline
 17 de março de 2022 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Bug}
-\item[\hyperlink{bug__bug000001}{Bug}]Não há bugs \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]Não há bugs \end{DoxyRefDesc}
 
 
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}\label{funcoes_8h_a5f5832d87cbcc86c37d249e933ac5c9f}} 
-\index{funcoes.\+h@{funcoes.\+h}!v\+Avg@{v\+Avg}}
-\index{v\+Avg@{v\+Avg}!funcoes.\+h@{funcoes.\+h}}
-\subsubsection{\texorpdfstring{v\+Avg()}{vAvg()}}
+\index{funcoes.h@{funcoes.h}!vAvg@{vAvg}}
+\index{vAvg@{vAvg}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{vAvg()}{vAvg()}}
 {\footnotesize\ttfamily float v\+Avg (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{vect }\end{DoxyParamCaption})}
 
 
 
-Calcula a média do vetor {\bfseries vect} 
+Calcula a média do vetor {\bfseries{vect}} 
 
-A função v\+Avg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor {\bfseries n}
+A função v\+Avg recebe o vetor e o valor do seu tamanho e calcula a média de todos os valores, somando-\/os um a um e no fim divide pelo número de elementos do vetor {\bfseries{n}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -64,14 +64,14 @@ Retorna o valor da média calculada
  * Guilherme Cajeira, nº93138
  * Email: gcajeira@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}\label{funcoes_8h_a90cd127f72cbca520c4a8887c08651b9}} 
-\index{funcoes.\+h@{funcoes.\+h}!v\+Init@{v\+Init}}
-\index{v\+Init@{v\+Init}!funcoes.\+h@{funcoes.\+h}}
-\subsubsection{\texorpdfstring{v\+Init()}{vInit()}}
+\index{funcoes.h@{funcoes.h}!vInit@{vInit}}
+\index{vInit@{vInit}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{vInit()}{vInit()}}
 {\footnotesize\ttfamily void v\+Init (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{vect }\end{DoxyParamCaption})}
 
 
 
-Preenchimento do vetor {\bfseries vect} com números naturais. 
+Preenchimento do vetor {\bfseries{vect}} com números naturais. 
 
 A função v\+Init preenche um vetor de numeros naturais, com um tamanho escolhido pelo o utilizador.
 
@@ -86,16 +86,16 @@ A função v\+Init preenche um vetor de numeros naturais, com um tamanho escolhi
  * Beatriz Carvas, nº93209
  * Email: beatrizcarvas@ua.pt \end{DoxyVerb}
  \mbox{\Hypertarget{funcoes_8h_a08e429422bc68b18df9359e9bba52c39}\label{funcoes_8h_a08e429422bc68b18df9359e9bba52c39}} 
-\index{funcoes.\+h@{funcoes.\+h}!v\+Sum@{v\+Sum}}
-\index{v\+Sum@{v\+Sum}!funcoes.\+h@{funcoes.\+h}}
-\subsubsection{\texorpdfstring{v\+Sum()}{vSum()}}
+\index{funcoes.h@{funcoes.h}!vSum@{vSum}}
+\index{vSum@{vSum}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{vSum()}{vSum()}}
 {\footnotesize\ttfamily int v\+Sum (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{vect }\end{DoxyParamCaption})}
 
 
 
-Calcula a soma dos valores do vetor {\bfseries vect} 
+Calcula a soma dos valores do vetor {\bfseries{vect}} 
 
-A função irá fazer a soma de todos os elementos do vetor {\bfseries vect}.
+A função irá fazer a soma de todos os elementos do vetor {\bfseries{vect}}.
 
 
 \begin{DoxyParams}{Parameters}
