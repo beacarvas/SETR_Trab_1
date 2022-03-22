@@ -5,11 +5,11 @@
 //extern int stream[N] ;
 
 
-void MySAGInit(int N)
+void MySAGInit(int N, int *stream)
 {
     for (int i =0 ; i < N ; i++)
     {
-         int stream[i] = 0;
+         stream[i] = 0;
     }
     
     
