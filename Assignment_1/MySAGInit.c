@@ -4,14 +4,21 @@
 //extern int N;
 //extern int stream[N] ;
 
-int stream[];
+int stream[MAXSIZE];
 
-void MySAGInit(int N, int *stream)
+int MySAGInit(int N, int *stream)
 {
-    for (int i =0 ; i < N ; i++)
+    if (N <= MAXSIZE)
     {
-         stream[i] = 0;
+        for (int i =0 ; i < N ; i++)
+        {
+            stream[i] = 0;
+        }
+        return 1;
     }
-    
+    else
+    {   
+        return -1;
+    }
     
 }
