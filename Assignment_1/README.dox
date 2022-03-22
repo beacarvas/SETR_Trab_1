@@ -1,0 +1,16 @@
+/**
+
+@mainpage SETR Trabalho 1 documentação
+
+@brief Descrição do projeto: \n
+O objetivo principal é calcular o máximo, o mínimo e a média de um módulo
+de números naturais. Além disso, indica o número de vezes que um valor está
+no módulo. \n
+Inicialmente o utilizador deve inserir o valor do tamanho do módulo. 
+De seguida, é apresentado o vetor, o valor máximo, o valor mínimo, a sua 
+média e o número de vezes que o valor escolhido pelo utilizador está presente
+no módulo. \n 
+
+@author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
+
+*/

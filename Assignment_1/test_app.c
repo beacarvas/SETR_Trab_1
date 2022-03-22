@@ -1,11 +1,39 @@
-
-
+/** @file test_app.c
+ * @brief Descrição da test_app()
+ * 
+ * 	Este ficheiro contém a main, função principal do nosso trabalho. \n
+ *  O nosso trabalho consiste em inicializar um módulo com um tamanho 
+ * que o utilizador escolhe e, após a inicialização, executa o seu preenchimento, 
+ * calcula o valor máximo, o mínimo e a média do módulo. Além disso, determina o
+ * número de vezes que um número está presente no módulo. \n
+ * 	Neste trabalho temos 6 funções para tornar o código mais organizado.
+ * A explicação mais detalhada de cada função estão no ficheiro funcoes.h
+ * 
+ * @author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
+ * @date 22 de março de 2022
+ * @bug Não há bugs 
+ */
 
 // Includes
 #include <stdio.h>
 #include "functions.h"
 
-extern int stream[];
+/** 
+ * @brief Descrição da test_app()
+ * 
+ * Inicialmente é definido pelo utilizador o tamanho **N** do módulo a trabalhar.
+ * É inicializado o módulo **stream** e chamada a função MySAGInit() e MySAGInsert(), 
+ * que inicializam e preenchem o módulo.
+ * Depois são chamadas as funções MySAGMax(), MySAGMin() e MySAGAvg(), que calculam 
+ * o valor máximo, mínimo e a média dos valores do módulo.
+ * Por último, é pedido ao utilizador o número que quer saber quantas vezes está presente
+ * no módulo e é chamada a função MySAGFreq(), que indica esse valor.
+ * Após cada chamada das funções, são feitos os prints dos resultados.
+ * 
+ * @return Return 0 
+ */
+
+extern int stream[MAXSIZE];
 
 int main(void)
 {
@@ -14,7 +42,7 @@ int main(void)
 	printf("Qual o tamanho do módulo? ");
 	scanf("%d",&N);
 
-	MySAGInit(N,stream);
+	int init = MySAGInit(N,stream);
 
 	MySAGInsert(N,stream);
 	printf("Stream = ");
@@ -47,6 +75,5 @@ int main(void)
 	else 
 		printf("O número %d existe %d vezes no módulo \n",x,freq);
 
-    
 	return 0;
 } 
