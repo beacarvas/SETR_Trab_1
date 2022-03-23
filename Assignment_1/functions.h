@@ -1,5 +1,5 @@
 /** @file functions.h
- * @brief Biblioteca das funções
+ * @brief Biblioteca das funções.
  * 
  * Este ficheiro contém as 6 funções que são chamadas na main (test_app.c), sendo a sua função: \n
  *  1º- Criar e inicializar o módulo; \n
@@ -11,7 +11,7 @@
  * 
  * @author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
  * @date 22 de março de 2022
- * @bug Não há bugs 
+ * @bug Não há bugs.
  */
 
 #include <stdbool.h>
@@ -32,8 +32,8 @@
  * A função MySAGInit cria e inicializa o módulo, com um tamanho escolhido pelo o utilizador. \n
  * O tamanho do módulo escolhido não deve exceder o limite máximo imposto **MAXSIZE**.
  * 
- * @param N Representa o tamanho do módulo
- * @param stream Representa o módulo
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
  * 
  * @verbatim
    Autor:
@@ -47,8 +47,8 @@
  * 
  * A função MySAGInsert é responsável por preencher o módulo criado de forma aleatória com números naturais.
  * 
- * @param N Representa o tamanho do módulo
- * @param stream Representa o módulo
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
  * 
  * @verbatim
    Autor:
@@ -62,8 +62,8 @@
  * 
  * A função MySAGMax percorre todo o módulo e identifica o valor máximo presente.
  * 
- * @param N Representa o tamanho do módulo
- * @param stream Representa o módulo
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
  * @return Retorna o valor máximo presente no módulo.
  * 
  * @verbatim
@@ -78,8 +78,8 @@
  * 
  * A função MySAGMax percorre todo o módulo e identifica o valor mínimo presente.
  * 
- * @param N Representa o tamanho do módulo
- * @param stream Representa o módulo
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
  * @return Retorna o valor mínimo presente no módulo.
  * 
  * @verbatim
@@ -96,8 +96,8 @@
  * de todos os valores, somando-os um a um e no fim divide pelo número de 
  * elementos do vetor **n**.
  * 
- * @param N Representa o tamanho do módulo 
- * @param stream Representa o módulo
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
  * @return Retorna o valor da média calculada.
  * 
  * @verbatim
@@ -113,9 +113,9 @@
  * A função MySAGMax percorre todo o módulo e identifica o número de ocorrẽncias de um dado valor.
  * O contador é incrementado cada vez que uma ocorrência é observada.
  * 
- * @param N Representa o tamanho do módulo
- * @param stream Representa o módulo
- * @param x Representa o valor cuja frequência no módulo se pretende observar
+ * @param N Representa o tamanho do módulo.
+ * @param stream Representa o módulo.
+ * @param x Representa o valor cuja frequência no módulo se pretende observar.
  * @return Retorna o número de vezes que um certo valor aparece no módulo.
  * 
  * @verbatim

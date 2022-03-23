@@ -1,5 +1,5 @@
 /** @file test_app.c
- * @brief Descrição da test_app()
+ * @brief Descrição da test_app().
  * 
  * 	Este ficheiro contém a main, função principal do nosso trabalho. \n
  *  O nosso trabalho consiste em inicializar um módulo com um tamanho 
@@ -40,7 +40,7 @@ extern int stream[MAXSIZE];
  * no módulo e é chamada a função MySAGFreq(), que indica a frequência desse valor.
  * Após cada chamada das funções, são feitos os prints dos resultados.
  * 
- * @return Return 0
+ * @return Return 0.
  * @exception ERROR- MAXSIZE foi ultrapassado.
  */
 

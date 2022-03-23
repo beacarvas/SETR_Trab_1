@@ -51,7 +51,7 @@ Beatriz Carvas ~\newline
 22 de março de 2022 
 \end{DoxyDate}
 \begin{DoxyRefDesc}{Bug}
-\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]Não há bugs \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]Não há bugs. \end{DoxyRefDesc}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -82,9 +82,9 @@ A função My\+S\+A\+G\+Avg recebe o módulo e o valor do seu tamanho e calcula 
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo \\
+{\em stream} & Representa o módulo. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -107,11 +107,11 @@ A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o número de oc
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo \\
+{\em stream} & Representa o módulo. \\
 \hline
-{\em x} & Representa o valor cuja frequência no módulo se pretende observar \\
+{\em x} & Representa o valor cuja frequência no módulo se pretende observar. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -135,9 +135,9 @@ O tamanho do módulo escolhido não deve exceder o limite máximo imposto {\bfse
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo\\
+{\em stream} & Representa o módulo.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyVerb}Autor:
@@ -157,9 +157,9 @@ A função My\+S\+A\+G\+Insert é responsável por preencher o módulo criado de
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo\\
+{\em stream} & Representa o módulo.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyVerb}Autor:
@@ -179,9 +179,9 @@ A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o valor máximo
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo \\
+{\em stream} & Representa o módulo. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -204,9 +204,9 @@ A função My\+S\+A\+G\+Max percorre todo o módulo e identifica o valor mínimo
 
 
 \begin{DoxyParams}{Parameters}
-{\em N} & Representa o tamanho do módulo \\
+{\em N} & Representa o tamanho do módulo. \\
 \hline
-{\em stream} & Representa o módulo \\
+{\em stream} & Representa o módulo. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
