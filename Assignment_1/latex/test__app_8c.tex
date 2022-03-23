@@ -17,7 +17,7 @@ int \mbox{\hyperlink{test__app_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (voi
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}} \mbox{[}\mbox{\hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{MAXSIZE}}\mbox{]}
+int \mbox{\hyperlink{test__app_8c_a61f1439fcb3825c65cf3b48e8f25bfa8}{stream}} \mbox{[}\mbox{\hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{M\+A\+X\+S\+I\+ZE}}\mbox{]}
 \begin{DoxyCompactList}\small\item\em Módulo de números inteiros. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -26,7 +26,7 @@ Descrição da test\+\_\+app()
 
 \begin{DoxyVerb}Este ficheiro contém a main, função principal do nosso trabalho. \n
 \end{DoxyVerb}
- O nosso trabalho consiste em inicializar um módulo com um tamanho que o utilizador escolhe e, após a inicialização, executa o seu preenchimento, calcula o valor máximo, o mínimo e a média do módulo. Além disso, determina o número de vezes que um número está presente no módulo. ~\newline
+ O nosso trabalho consiste em inicializar um módulo com um tamanho que o utilizador escolhe e, após a inicialização, executa o seu preenchimento aleatório, calcula o valor máximo, o mínimo e a média do módulo. Além disso, determina o número de vezes que um número está presente no módulo. ~\newline
  Neste trabalho temos 6 funções para tornar o código mais organizado. A explicação mais detalhada de cada função estão no ficheiro funcoes.\+h
 
 \begin{DoxyAuthor}{Author}
@@ -52,11 +52,16 @@ Beatriz Carvas ~\newline
 
 Descrição da test\+\_\+app() 
 
-Inicialmente é definido pelo utilizador o tamanho {\bfseries{N}} do módulo a trabalhar. É inicializado o módulo {\bfseries{stream}} e chamada a função \mbox{\hyperlink{functions_8h_ab09575d101f698259cdeba949626e2ad}{My\+SAGInit()}} e \mbox{\hyperlink{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}{My\+SAGInsert()}}, que inicializam e preenchem o módulo. Depois são chamadas as funções \mbox{\hyperlink{functions_8h_ad336b859e0fb56f7870d15b8b283a426}{My\+SAGMax()}}, \mbox{\hyperlink{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}{My\+SAGMin()}} e \mbox{\hyperlink{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}{My\+SAGAvg()}}, que calculam o valor máximo, mínimo e a média dos valores do módulo. Por último, é pedido ao utilizador o número que quer saber quantas vezes está presente no módulo e é chamada a função \mbox{\hyperlink{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}{My\+SAGFreq()}}, que indica esse valor. Após cada chamada das funções, são feitos os prints dos resultados.
+Inicialmente é definido pelo utilizador o tamanho {\bfseries{N}} do módulo a trabalhar. É inicializado o módulo {\bfseries{stream}} e chamada a função \mbox{\hyperlink{functions_8h_ab09575d101f698259cdeba949626e2ad}{My\+S\+A\+G\+Init()}} e \mbox{\hyperlink{functions_8h_a81c6f45bd3d252af38c327196b9e94b3}{My\+S\+A\+G\+Insert()}}, que inicializam e preenchem o módulo. Depois são chamadas as funções \mbox{\hyperlink{functions_8h_ad336b859e0fb56f7870d15b8b283a426}{My\+S\+A\+G\+Max()}}, \mbox{\hyperlink{functions_8h_afc6e79bb7f778d2e5d4fa3258de199d5}{My\+S\+A\+G\+Min()}} e \mbox{\hyperlink{functions_8h_aea4bbdff6def4390bc76b9e256e23a47}{My\+S\+A\+G\+Avg()}}, que calculam o valor máximo, mínimo e a média dos valores do módulo. Por último, é pedido ao utilizador o número que quer saber quantas vezes está presente no módulo e é chamada a função \mbox{\hyperlink{functions_8h_a3fd486a042fe07116a86b787bcee0c5a}{My\+S\+A\+G\+Freq()}}, que indica a frequência desse valor. Após cada chamada das funções, são feitos os prints dos resultados.
 
 \begin{DoxyReturn}{Returns}
 Return 0 
 \end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em E\+R\+R\+O\+R-\/} & M\+A\+X\+S\+I\+ZE foi ultrapassado. \\
+\hline
+\end{DoxyExceptions}
 
 
 \doxysubsection{Variable Documentation}
@@ -64,7 +69,7 @@ Return 0
 \index{test\_app.c@{test\_app.c}!stream@{stream}}
 \index{stream@{stream}!test\_app.c@{test\_app.c}}
 \doxysubsubsection{\texorpdfstring{stream}{stream}}
-{\footnotesize\ttfamily int stream\mbox{[}\mbox{\hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{MAXSIZE}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily int stream\mbox{[}\mbox{\hyperlink{functions_8h_a2a37b4217917105aac7557862ccc19c3}{M\+A\+X\+S\+I\+ZE}}\mbox{]}}
 
 
 

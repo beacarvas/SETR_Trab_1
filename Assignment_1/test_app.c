@@ -3,7 +3,7 @@
  * 
  * 	Este ficheiro contém a main, função principal do nosso trabalho. \n
  *  O nosso trabalho consiste em inicializar um módulo com um tamanho 
- * que o utilizador escolhe e, após a inicialização, executa o seu preenchimento, 
+ * que o utilizador escolhe e, após a inicialização, executa o seu preenchimento aleatório, 
  * calcula o valor máximo, o mínimo e a média do módulo. Além disso, determina o
  * número de vezes que um número está presente no módulo. \n
  * 	Neste trabalho temos 6 funções para tornar o código mais organizado.
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include "functions.h"
 
-/** @brief Módulo de números inteiros
+/** @brief Módulo de números inteiros.
  * 
  * O utilizador, após escolher o tamanho do módulo **stream**, este é preenchido
  * com valores random. \n
@@ -37,10 +37,11 @@ extern int stream[MAXSIZE];
  * Depois são chamadas as funções MySAGMax(), MySAGMin() e MySAGAvg(), que calculam 
  * o valor máximo, mínimo e a média dos valores do módulo.
  * Por último, é pedido ao utilizador o número que quer saber quantas vezes está presente
- * no módulo e é chamada a função MySAGFreq(), que indica esse valor.
+ * no módulo e é chamada a função MySAGFreq(), que indica a frequência desse valor.
  * Após cada chamada das funções, são feitos os prints dos resultados.
  * 
- * @return Return 0 
+ * @return Return 0
+ * @exception ERROR- MAXSIZE foi ultrapassado.
  */
 
 int main(void)
