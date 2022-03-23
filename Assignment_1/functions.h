@@ -45,7 +45,7 @@
 /**
  * @brief Preenchimento do módulo **stream** com números naturais.
  * 
- * A função MySAGInsert é responsável por preencher o módulo criado de forma aleatória com números naturais.
+ * A função MySAGInsert é responsável por preencher o módulo criado de forma aleatória com números naturais, no máximo o dobro do tamnho do módulo.
  * 
  * @param N Representa o tamanho do módulo.
  * @param stream Representa o módulo.

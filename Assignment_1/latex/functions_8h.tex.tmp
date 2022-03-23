@@ -153,7 +153,7 @@ O tamanho do módulo escolhido não deve exceder o limite máximo imposto {\bfse
 
 Preenchimento do módulo {\bfseries{stream}} com números naturais. 
 
-A função My\+S\+A\+G\+Insert é responsável por preencher o módulo criado de forma aleatória com números naturais.
+A função My\+S\+A\+G\+Insert é responsável por preencher o módulo criado de forma aleatória com números naturais, no máximo o dobro do tamnho do módulo.
 
 
 \begin{DoxyParams}{Parameters}
