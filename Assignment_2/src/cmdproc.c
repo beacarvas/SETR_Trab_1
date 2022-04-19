@@ -59,7 +59,7 @@ int cmdProcessor(void)
 			return 0;
 		}
 		
-		if(cmdString[i+1] == 'S') { /* S command detected */
+		else if(cmdString[i+1] == 'S') { /* S command detected */
 			printf("Setpoint = %d, Output = %d, Error = %d", setpoint, output, error);
 			resetCmdString();
 			return 0;

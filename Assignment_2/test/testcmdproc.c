@@ -35,6 +35,7 @@ int main(void)
 
 	int res;
 	
+	/* Segmento 1 */
 	printf("Command processor test app\n\r");
 	resetCmdString();
 	newCmdChar('*');
@@ -45,29 +46,61 @@ int main(void)
 	newCmdChar('3');
 	newCmdChar((unsigned char)('P'+'1'+'2'+'3'));
 	newCmdChar('!');
-	/* res=cmdProcessor(); */
 	RUN_TEST(test_res_1);
-	printf("cmdProcessor output to P 1 2 3: %d, Kp=%c,Ti=%c,Td=%c \n\r", res, Kp, Ti, Td);
 	
+	/* Segmento 2 */ 
 	resetCmdString();
 	newCmdChar('#');
 	newCmdChar('D');
 	newCmdChar('!');
 	/* res=cmdProcessor(); */
 	RUN_TEST(test_res_1);
-	printf("cmdProcessor output to D (typo, should be S): % d\n\r", res);
+	/* printf("cmdProcessor output to D (typo, should be S): % d\n\r", res); */
 	
-
+	/* Segmento 3 */ 
 	resetCmdString();
-	newCmdChar('+');
+	newCmdChar('*');
 	newCmdChar('S');
 	newCmdChar('!');
 	newCmdChar('#');
-	/* newCmdChar('P'); */
 	newCmdChar('!');
-	/* res=cmdProcessor(); */
 	RUN_TEST(test_res_1);
-	printf("cmdProcessor output to S with wrong SOF: % d\n\r", res);
+
+	/* Segmento 4 */ 
+	resetCmdString();
+	newCmdChar('*');
+	newCmdChar('S');
+	newCmdChar('!');
+	newCmdChar('#');
+	newCmdChar('P');
+	newCmdChar('1');
+	newCmdChar('2');
+	newCmdChar('3');
+	newCmdChar('!');
+	RUN_TEST(test_res_1);
+
+	/* Segmento 5 */ 
+	resetCmdString();
+	newCmdChar('#');
+	newCmdChar('P');
+	newCmdChar('S');
+	newCmdChar('!');
+	RUN_TEST(test_res_1);
+
+	/* Segmento 6 */ 
+	resetCmdString();
+	newCmdChar('#');
+	newCmdChar('S');
+	newCmdChar('P');
+	newCmdChar('!');
+	RUN_TEST(test_res_1);
+	
+	/* Segmento 7 */ 
+	resetCmdString();
+	newCmdChar('#');
+	newCmdChar('P');
+	newCmdChar('!');
+	RUN_TEST(test_res_1);
 	
 	return UNITY_END();
 }
