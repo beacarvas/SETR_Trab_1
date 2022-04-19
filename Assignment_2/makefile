@@ -12,7 +12,7 @@
 MODULE_NAME = cmdproc
 
 # Paths
-UNITY_ROOT = ..
+UNITY_ROOT = Unity
 SRC_FOLDER = src
 TEST_FOLDER = test
 
