@@ -10,6 +10,7 @@
 /* ***************************************************** */
 #include <stdio.h>
 #include "cmdproc.h"
+#include <unity.h>
 
 extern char Kp, Ti, Td;
 
