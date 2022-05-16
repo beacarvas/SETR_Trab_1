@@ -1,0 +1,202 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.\+c@{main.\+c}}
+
+
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}.  
+
+
+{\ttfamily \#include $<$zephyr.\+h$>$}\newline
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$devicetree.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/printk.\+h$>$}\newline
+{\ttfamily \#include $<$sys/\+\_\+\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$timing/timing.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}\label{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}} 
+\#define \hyperlink{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}{G\+P\+I\+O0\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(gpio0)
+\begin{DoxyCompactList}\small\item\em Label G\+P\+I\+O0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}\label{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}} 
+\#define \hyperlink{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}{B\+O\+A\+R\+D\+B\+U\+T1}~11
+\begin{DoxyCompactList}\small\item\em Botão 1 que corresponde a 10 cent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a590d906828bd5948fafbef47dc1c3b0c}\label{main_8c_a590d906828bd5948fafbef47dc1c3b0c}} 
+\#define \hyperlink{main_8c_a590d906828bd5948fafbef47dc1c3b0c}{B\+O\+A\+R\+D\+B\+U\+T2}~12
+\begin{DoxyCompactList}\small\item\em Botão 2 que corresponde a 20 cent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a2e82ac21050552495e5a8551178bf258}\label{main_8c_a2e82ac21050552495e5a8551178bf258}} 
+\#define \hyperlink{main_8c_a2e82ac21050552495e5a8551178bf258}{B\+O\+A\+R\+D\+B\+U\+T3}~24
+\begin{DoxyCompactList}\small\item\em Botão 3 que corresponde a 50 cent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_abee96e1280405ff973ee2b6b07eec104}\label{main_8c_abee96e1280405ff973ee2b6b07eec104}} 
+\#define \hyperlink{main_8c_abee96e1280405ff973ee2b6b07eec104}{B\+O\+A\+R\+D\+B\+U\+T4}~25
+\begin{DoxyCompactList}\small\item\em Botão 4 que corresponde a 1 E\+UR. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a51df65f6b8a8c48cbec3c9fed14c1b0a}\label{main_8c_a51df65f6b8a8c48cbec3c9fed14c1b0a}} 
+\#define \hyperlink{main_8c_a51df65f6b8a8c48cbec3c9fed14c1b0a}{B\+U\+T\+UP}~3
+\begin{DoxyCompactList}\small\item\em Botão UP que corresponde a andar para cima no menu dos produtos. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_af3ff019b0ba300edea3866aab05c5f32}\label{main_8c_af3ff019b0ba300edea3866aab05c5f32}} 
+\#define \hyperlink{main_8c_af3ff019b0ba300edea3866aab05c5f32}{B\+U\+T\+D\+O\+WN}~4
+\begin{DoxyCompactList}\small\item\em Botão D\+O\+WN que corresponde a andar para baixo no menu dos produtos. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a87b5b6d26412c75c3e3016078354662e}\label{main_8c_a87b5b6d26412c75c3e3016078354662e}} 
+\#define \hyperlink{main_8c_a87b5b6d26412c75c3e3016078354662e}{B\+U\+T\+S\+E\+L\+E\+CT}~28
+\begin{DoxyCompactList}\small\item\em Botão S\+E\+L\+E\+CT que corresponde a escolher um produto. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_aac026ff88ff97a4510fd9c9a69afcc15}\label{main_8c_aac026ff88ff97a4510fd9c9a69afcc15}} 
+\#define \hyperlink{main_8c_aac026ff88ff97a4510fd9c9a69afcc15}{B\+U\+T\+R\+E\+T\+U\+RN}~29
+\begin{DoxyCompactList}\small\item\em Botão R\+E\+T\+U\+RN que corresponde a receber o crédito atual. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a0ba27b61eea3bf737a6ac674a799a0af}\label{main_8c_a0ba27b61eea3bf737a6ac674a799a0af}} 
+\#define \hyperlink{main_8c_a0ba27b61eea3bf737a6ac674a799a0af}{W\+A\+I\+T\+\_\+\+F\+O\+R\+\_\+\+C\+O\+IN}~0
+\begin{DoxyCompactList}\small\item\em Estado onde são introduzidas as moedas (estado \char`\"{}\+I\+D\+L\+E\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a5e5a8ea7597befb0b3c37c17ab4711da}\label{main_8c_a5e5a8ea7597befb0b3c37c17ab4711da}} 
+\#define \hyperlink{main_8c_a5e5a8ea7597befb0b3c37c17ab4711da}{C\+H\+O\+I\+C\+E\+\_\+\+P\+R\+OD}~1
+\begin{DoxyCompactList}\small\item\em Estado onde o produto é escolhido e selecionado. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ab22faa289addc0d94b81016ce2a6e609}\label{main_8c_ab22faa289addc0d94b81016ce2a6e609}} 
+\#define \hyperlink{main_8c_ab22faa289addc0d94b81016ce2a6e609}{C\+O\+M\+P\+A\+R\+E\+\_\+\+C\+R\+E\+D\+IT}~2
+\begin{DoxyCompactList}\small\item\em Estado onde é verificado se o cliente tem crédito suficiente tendo em conta o produto que este selecionou. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_aaab3e31b6babc2c1b8b011467e240be1}\label{main_8c_aaab3e31b6babc2c1b8b011467e240be1}} 
+\#define \hyperlink{main_8c_aaab3e31b6babc2c1b8b011467e240be1}{R\+E\+T\+U\+R\+N\+\_\+\+C\+R\+E\+D\+IT}~5
+\begin{DoxyCompactList}\small\item\em E\+Estado onde o cliente recebe o troco. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ab26969f93a85e77b38bb30c00d2c7798}\label{main_8c_ab26969f93a85e77b38bb30c00d2c7798}} 
+\#define \hyperlink{main_8c_ab26969f93a85e77b38bb30c00d2c7798}{B\+E\+ER}~6
+\begin{DoxyCompactList}\small\item\em Estado onde é dispensada a cerveja e descontado o respetivo valor do produto ao crédito total. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ad97c794ed63e3874986898174e1b7acc}\label{main_8c_ad97c794ed63e3874986898174e1b7acc}} 
+\#define \hyperlink{main_8c_ad97c794ed63e3874986898174e1b7acc}{T\+U\+NA}~7
+\begin{DoxyCompactList}\small\item\em Estado onde é dispensada a sandes de atum e descontado o respetivo valor do produto ao crédito total. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a7411c16023c9c2562698ef637ec8c80b}\label{main_8c_a7411c16023c9c2562698ef637ec8c80b}} 
+\#define \hyperlink{main_8c_a7411c16023c9c2562698ef637ec8c80b}{C\+O\+F\+F\+EE}~8
+\begin{DoxyCompactList}\small\item\em Estado onde é dispensado o café e descontado o respetivo valor do produto ao crédito total. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a36b3d43c12bc9091419b0313b123a984}{configure\+\_\+pins\+\_\+board} (void)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração \hyperlink{main_8c_a36b3d43c12bc9091419b0313b123a984}{configure\+\_\+pins\+\_\+board()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a062f347b7a4b3bc98e473950b6d68064}{configure\+\_\+pins\+\_\+external} (void)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração \hyperlink{main_8c_a062f347b7a4b3bc98e473950b6d68064}{configure\+\_\+pins\+\_\+external()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração \hyperlink{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração \hyperlink{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main} (void)
+\begin{DoxyCompactList}\small\item\em Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ac8529dec83e91f71d383fb84302cfb27}\label{main_8c_ac8529dec83e91f71d383fb84302cfb27}} 
+const struct device $\ast$ {\bfseries gpio0\+\_\+dev}
+\item 
+\mbox{\Hypertarget{main_8c_a1e08e2a311cf454c8079fb8daca0d462}\label{main_8c_a1e08e2a311cf454c8079fb8daca0d462}} 
+volatile double {\bfseries coin} = 0.\+0
+\item 
+\mbox{\Hypertarget{main_8c_a0496f4b0b626e7932d5cb977b4414f41}\label{main_8c_a0496f4b0b626e7932d5cb977b4414f41}} 
+volatile int {\bfseries up} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ad544be284b94d8bd6d3352e7252488a9}\label{main_8c_ad544be284b94d8bd6d3352e7252488a9}} 
+volatile int {\bfseries down} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a19e6492e9f4006386a7cebdd0ab02795}\label{main_8c_a19e6492e9f4006386a7cebdd0ab02795}} 
+volatile int {\bfseries select\+\_\+prod} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a31e1be1bcee959081e7af40a110d05c9}\label{main_8c_a31e1be1bcee959081e7af40a110d05c9}} 
+volatile int {\bfseries return\+\_\+credit} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a6baa346e44f4c2158d2be4f9b77b8203}\label{main_8c_a6baa346e44f4c2158d2be4f9b77b8203}} 
+int {\bfseries ret} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}. 
+
+Este ficheiro contém a \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}, função principal do nosso trabalho e as funções de configuração dos botões utilizados. ~\newline
+ O nosso trabalho consiste em criar uma máquina de vendas que aceita um conjunto de moedas e permite que o utilizador navegue pelo menu de produtos disponíveis, compre um produto e devolva o crédito final. ~\newline
+. Esta máquina de vendas será implementada através de uma máquina de estados com sete estados inerentes. A explicação mais detalhada de cada estado é apresentada na descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} ~\newline
+ \begin{DoxyAuthor}{Author}
+Beatriz Carvas ~\newline
+ Dário Fernandes ~\newline
+ Guilherme Cajeira 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+17 de maio de 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]Não há bugs \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}\label{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}} 
+\index{main.\+c@{main.\+c}!but1press\+\_\+cbfunction@{but1press\+\_\+cbfunction}}
+\index{but1press\+\_\+cbfunction@{but1press\+\_\+cbfunction}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{but1press\+\_\+cbfunction()}{but1press\_cbfunction()}}
+{\footnotesize\ttfamily void but1press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração \hyperlink{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}{but1press\+\_\+cbfunction()} 
+
+Função que implementa a ação realizada ao premir cada um dos botões que fazem parte do kit da Nordic e que foram implementados neste projeto. \mbox{\Hypertarget{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}\label{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}} 
+\index{main.\+c@{main.\+c}!but2press\+\_\+cbfunction@{but2press\+\_\+cbfunction}}
+\index{but2press\+\_\+cbfunction@{but2press\+\_\+cbfunction}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{but2press\+\_\+cbfunction()}{but2press\_cbfunction()}}
+{\footnotesize\ttfamily void but2press\+\_\+cbfunction (\begin{DoxyParamCaption}\item[{const struct device $\ast$}]{dev,  }\item[{struct gpio\+\_\+callback $\ast$}]{cb,  }\item[{uint32\+\_\+t}]{pins }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração \hyperlink{main_8c_ad5a577fea0419d075e8b4de7c1416f9b}{but2press\+\_\+cbfunction()} 
+
+Função que implementa a ação realizada ao premir cada um dos botões ligados externamente e que foram implementados neste projeto. \mbox{\Hypertarget{main_8c_a36b3d43c12bc9091419b0313b123a984}\label{main_8c_a36b3d43c12bc9091419b0313b123a984}} 
+\index{main.\+c@{main.\+c}!configure\+\_\+pins\+\_\+board@{configure\+\_\+pins\+\_\+board}}
+\index{configure\+\_\+pins\+\_\+board@{configure\+\_\+pins\+\_\+board}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{configure\+\_\+pins\+\_\+board()}{configure\_pins\_board()}}
+{\footnotesize\ttfamily void configure\+\_\+pins\+\_\+board (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração \hyperlink{main_8c_a36b3d43c12bc9091419b0313b123a984}{configure\+\_\+pins\+\_\+board()} 
+
+Função de configuração dos 4 botões que fazem parte do kit da Nordic, que inclui a configuração do pino de cada botão respetivo, a configuração da interrupção de cada pino e por último a inicialização da estrtura callback associada aos 4 botões e a sua aplicação. \mbox{\Hypertarget{main_8c_a062f347b7a4b3bc98e473950b6d68064}\label{main_8c_a062f347b7a4b3bc98e473950b6d68064}} 
+\index{main.\+c@{main.\+c}!configure\+\_\+pins\+\_\+external@{configure\+\_\+pins\+\_\+external}}
+\index{configure\+\_\+pins\+\_\+external@{configure\+\_\+pins\+\_\+external}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{configure\+\_\+pins\+\_\+external()}{configure\_pins\_external()}}
+{\footnotesize\ttfamily void configure\+\_\+pins\+\_\+external (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração \hyperlink{main_8c_a062f347b7a4b3bc98e473950b6d68064}{configure\+\_\+pins\+\_\+external()} 
+
+Função de configuração dos 4 botões ligados externamente, que inclui a configuração do pino de cada botão respetivo, a configuração da interrupção de cada pino e por último a inicialização da estrtura callback associada aos 4 botões e a sua aplicação. \mbox{\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} 
+
+Inicialmente é apresentado um menu com os produtos disponíveis, assim como uma breve descrição do funcionamento da máquina de vendas. ~\newline
+A máquina de vendas é constituída por sete estados, tais como\+: ~\newline
+
+\begin{DoxyItemize}
+\item W\+A\+I\+T\+\_\+\+F\+O\+R\+\_\+\+C\+O\+IN\+: Estado onde são introduzidas as moedas (estado \char`\"{}\+I\+D\+L\+E\char`\"{}); ~\newline
+
+\item C\+H\+O\+I\+C\+E\+\_\+\+P\+R\+OD\+: Estado onde o produto é escolhido e selecionado; ~\newline
+
+\item C\+O\+M\+P\+A\+R\+E\+\_\+\+C\+R\+E\+D\+IT\+: Estado onde é verificado se o cliente tem crédito suficiente tendo em conta o produto que este selecionou; ~\newline
+
+\item R\+E\+T\+U\+R\+N\+\_\+\+C\+R\+E\+D\+IT\+: Estado onde o cliente recebe o troco; ~\newline
+
+\item B\+E\+ER\+: Estado onde é dispensada a cerveja e descontado o respetivo valor do produto ao crédito total; ~\newline
+
+\item T\+U\+NA\+: Estado onde é dispensada a sandes de atum e descontado o respetivo valor do produto ao crédito total; ~\newline
+
+\item C\+O\+F\+F\+EE\+: Estado onde é dispensado o café e descontado o respetivo valor do produto ao crédito total. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}

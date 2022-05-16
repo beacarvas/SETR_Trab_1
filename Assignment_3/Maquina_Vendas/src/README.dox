@@ -1,0 +1,13 @@
+/**
+
+@mainpage SETR Trabalho 3 documentação
+
+@brief Descrição do projeto: \n
+O objetivo principal é implementar uma máquina de vendas automática que aceita
+um conjunto de moedas e permite que o utilizador navegue pelo menu de produtos
+disponíveis, compre um produto e devolva o crédito final. \n
+Esta implementação tem como base uma máquina de estados. \n
+
+@author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
+
+*/
