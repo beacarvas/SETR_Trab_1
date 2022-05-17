@@ -79,8 +79,8 @@
 
 /** @brief EEstado onde o cliente recebe o troco.
  */
-#define RETURN_CREDIT   5 // valor passou de 2 para 5 só para não entrar em 
-                          // conflito com os #define dos pinos
+#define RETURN_CREDIT   5 // valor passou de 2 para 5 so para nao entrar em 
+                          // conflito com os define dos pinos
 
 /** @brief Estado onde é dispensada a cerveja e descontado o respetivo valor do produto ao crédito total.
  */
@@ -233,90 +233,90 @@ void main(void) {
       switch(state) {
         case WAIT_FOR_COIN:
           index_prod = 0;
-          k_msleep(200);        // delay de 200 ms para evitar erros na leitura do bot�o e o seu respetivo valor
-          credit += coin;       // variavel credit acumula o valor da moeda inserida ao que j� tinha anteriormente
+          k_msleep(200);        // delay de 200 ms para evitar erros na leitura do botao e o seu respetivo valor
+          credit += coin;       // variavel credit acumula o valor da moeda inserida ao que ja tinha anteriormente
           
 
-          if(coin != 0) {       // quando � novamente inserida uma moeda
+          if(coin != 0) {       // quando e novamente inserida uma moeda
             
             printf("%d.%d EUR \n\r",(int)coin,(int)((coin-(int)coin)*10));  // print do valor da moeda inserida
 
             coin = 0;           // voltar a colocar a variavel coin a 0 para esperar que volte a ser inserida uma nova moeda
 
-            printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do cr�dito atual
+            printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do credito atual
 
             printk("Insira moeda: ");
           }
 
-          if(up == 0 && down == 0)        // condi��o para se manter no mesmo estado
-            state = WAIT_FOR_COIN;        // o next_state ser� o mesmo estado
+          if(up == 0 && down == 0)        // condicao para se manter no mesmo estado
+            state = WAIT_FOR_COIN;        // o next_state sera o mesmo estado
 
-          if(up == 1 || down == 1) {      // condi��o para mudar para o estado "CHOICE_PROD"
-            state = CHOICE_PROD;          // o next_state � o estado "CHOICE_PROD"
+          if(up == 1 || down == 1) {      // condicao para mudar para o estado "CHOICE_PROD"
+            state = CHOICE_PROD;          // o next_state e o estado "CHOICE_PROD"
             printk("\n-- Escolha o produto -- \n\r");  
           }
 
-          if(return_credit == 1)          // condi��o para mudar para o estado "RETURN_CREDIT"
-            state = RETURN_CREDIT;        // o next_state � o estado "RETURN_CREDIT"
+          if(return_credit == 1)          // condicao para mudar para o estado "RETURN_CREDIT"
+            state = RETURN_CREDIT;        // o next_state e o estado "RETURN_CREDIT"
 
-          if(select_prod == 1) {          // no caso do bot�o select_prod ser premido
-            state = WAIT_FOR_COIN;        // mant�m-se no mesmo estado, pois este bot�o n�o � um evento no estado "WAIT_FOR_COIN"
-            select_prod = 0;              // � necess�rio voltar a colocar a vari�vel select_prod a 0, sen�o ela fica com o valor l�gico '1'
-                                          // guardado e, apesar de n�o afetar neste estado, afeta nos seguintes em que � um evento
+          if(select_prod == 1) {          // no caso do botao select_prod ser premido
+            state = WAIT_FOR_COIN;        // mantem-se no mesmo estado, pois este botao nao e um evento no estado "WAIT_FOR_COIN"
+            select_prod = 0;              // e necessario voltar a colocar a variavel select_prod a 0, senao ela fica com o valor logico '1'
+                                          // guardado e, apesar de nao afetar neste estado, afeta nos seguintes em que e um evento
           }
 
           break;
 
         
         case CHOICE_PROD:
-         if(select_prod == 0) {     // se o bot�o para selecionar o produ��o n�o for premido
-            if(up == 1) {               // se o bot�o up for premido  
-              index_prod++;             // a sele��o passa para o produto acima do atual
-              if(index_prod > 2)        // condi��o necess�ria para o caso de chegar ao �ltimo produto do menu, tem de voltar ao primeiro
+         if(select_prod == 0) {     // se o botao para selecionar o producao nao for premido
+            if(up == 1) {               // se o botao up for premido  
+              index_prod++;             // a selecao passa para o produto acima do atual
+              if(index_prod > 2)        // condicao necessaria para o caso de chegar ao ultimo produto do menu, tem de voltar ao primeiro
                 index_prod = 0;
 
-              printk("Produto a selecionar: %s \n\r",products[index_prod]);   // print do produto que est� em sele��o no presente momento
+              printk("Produto a selecionar: %s \n\r",products[index_prod]);   // print do produto que esta em selecao no presente momento
               up = 0;                   // voltar a colocar a variavel up a 0 
             }
-            else if(down == 1) {        // se o bot�o down for premido
-              index_prod--;             // a sele��o passa para o produto abaixo do atual
-              if(index_prod < 0)        // condi��o necess�ria para o caso de chegar ao primeiro produto do menu, tem de voltar ao �ltimo
+            else if(down == 1) {        // se o botao down for premido
+              index_prod--;             // a selecao passa para o produto abaixo do atual
+              if(index_prod < 0)        // condicao necessaria para o caso de chegar ao primeiro produto do menu, tem de voltar ao ultimo
                 index_prod = 2;
 
-              printk("Produto a selecionar: %s \n\r",products[index_prod]);   // print do produto que est� em sele��o no presente momento
+              printk("Produto a selecionar: %s \n\r",products[index_prod]);   // print do produto que esta em selecao no presente momento
               down = 0;
             }
 
             state = CHOICE_PROD;
           }
 
-          else if(select_prod == 1)   // se o bot�o para selecionar o produ��o for premido- condi��o para mudar para o estado "COMPARE_CREDIT"
-            state = COMPARE_CREDIT;   // o next_state � o estado "COMPARE_CREDIT"
+          else if(select_prod == 1)   // se o botao para selecionar o produto for premido- condicao para mudar para o estado "COMPARE_CREDIT"
+            state = COMPARE_CREDIT;   // o next_state e o estado "COMPARE_CREDIT"
         
-          if(return_credit == 1)      // condi��o para mudar para o estado "RETURN_CREDIT"
-            state = RETURN_CREDIT;    // o next_state � o estado "RETURN_CREDIT"
+          if(return_credit == 1)      // condicao para mudar para o estado "RETURN_CREDIT"
+            state = RETURN_CREDIT;    // o next_state e o estado "RETURN_CREDIT"
 
-          if(coin != 0)               // se neste estado for premido algum dos bot�es das moedas
-            coin = 0;                 // o valor da vari�vel coin deve voltar a ter o valor 0 para n�o afetar o valor do credit, no caso de 
+          if(coin != 0)               // se neste estado for premido algum dos botoes das moedas
+            coin = 0;                 // o valor da variavel coin deve voltar a ter o valor 0 para nao afetar o valor do credit, no caso de 
                                       // voltarmos ao estado "WAIT_FOR_COIN"
           
           break;
 
 
         case COMPARE_CREDIT:
-          select_prod = 0;                          // for�ar vari�vel do bot�o "select_prod" a zero
-          if(credit >= price_product[index_prod])   // Compara��o entre o cr�dito dispon�vel e o pre�o do produto
+          select_prod = 0;                          // forcar variavel do botao "select_prod" a zero
+          if(credit >= price_product[index_prod])   // Comparacao entre o credito disponivel e o preco do produto
           {
-            if(index_prod == 0)                     // condi��o para mudar para o estado "BEER"
-              state = BEER;                         // o next_state � o estado "BEER"
-            else if(index_prod == 1)                // condi��o para mudar para o estado "TUNA"
-              state = TUNA;                         // o next_state � o estado "TUNA"
-            else if(index_prod == 2)                // condi��o para mudar para o estado "COFFEE"
-              state = COFFEE;                       // o next_state � o estado "COFFEE"
+            if(index_prod == 0)                     // condicao para mudar para o estado "BEER"
+              state = BEER;                         // o next_state e o estado "BEER"
+            else if(index_prod == 1)                // condicao para mudar para o estado "TUNA"
+              state = TUNA;                         // o next_state e o estado "TUNA"
+            else if(index_prod == 2)                // condicao para mudar para o estado "COFFEE"
+              state = COFFEE;                       // o next_state e o estado "COFFEE"
           }
-          else                                     // caso cr�dito n�o seja suficiente, volta para o estado WAIT_FOR_COIN (introdu��o de moedas)
+          else                                     // caso credito nao seja suficiente, volta para o estado WAIT_FOR_COIN (introducao de moedas)
           {
-            state = WAIT_FOR_COIN;                 // o next_state � o estado "WAIT_FOR_COIN" 
+            state = WAIT_FOR_COIN;                 // o next_state e o estado "WAIT_FOR_COIN" 
             printk("\nSaldo Insuficiente!!!\n");
             printk("\nInsira moeda: ");
           }
@@ -325,9 +325,9 @@ void main(void) {
 
 
         case RETURN_CREDIT:
-          return_credit = 0;                                                              // for�ar vari�vel do bot�o "return_credit" a zero
+          return_credit = 0;                                                              // forcar variavel do botao "return_credit" a zero
           printf("TROCO: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do troco
-          credit = 0;                                                                     // reset da vari�vel cr�dito
+          credit = 0;                                                                     // reset da variavel credito
           
           printk("------------------------------------------------------------------------- \n\r");
           printk(" MENU \n\r");
@@ -344,37 +344,37 @@ void main(void) {
           printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));
           printk("Insira moeda: ");
 
-          state = WAIT_FOR_COIN;                                                                 // o next_state � o estado "WAIT_FOR_COIN"
+          state = WAIT_FOR_COIN;                                                                 // o next_state e o estado "WAIT_FOR_COIN"
 
           break;
 
         
         case BEER:
-          credit -= price_product[index_prod];                                                    // c�lculo do troco e atualiza��o do cr�dito
+          credit -= price_product[index_prod];                                                    // calculo do troco e atualizacao do credito
           printk("\nCerveja dispensada!\n\r");
-          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do cr�dito atual
+          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do credito atual
           printk("Escolha outro produto\n");
 
-          state = WAIT_FOR_COIN;                                                                  // o next_state � o estado "WAIT_FOR_COIN"
+          state = WAIT_FOR_COIN;                                                                  // o next_state e o estado "WAIT_FOR_COIN"
 
           break;
 
         case TUNA:
-          credit -= price_product[index_prod];                                                    // c�lculo do troco e atualiza��o do cr�dito
+          credit -= price_product[index_prod];                                                    // calculo do troco e atualizacao do credito
           printk("\nSandes de Atum dispensada!\n\r");
-          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do cr�dito atual
+          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do credito atual
           printk("Escolha outro produto\n");
 
-          state = WAIT_FOR_COIN;                                                                  // o next_state � o estado "WAIT_FOR_COIN"
+          state = WAIT_FOR_COIN;                                                                  // o next_state e o estado "WAIT_FOR_COIN"
           break;
 
         case COFFEE:
-          credit -= price_product[index_prod];                                                    // c�lculo do troco e atualiza��o do cr�dito
+          credit -= price_product[index_prod];                                                    // calculo do troco e atualizacao do credito
           printk("\nCafe dispensado!\n\r");
-          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do cr�dito atual
+          printf("Credito atual: %d.%d EUR \n\n\r",(int)credit,(int)((credit-(int)credit)*10));   // print do credito atual
           printk("Escolha outro produto\n");
 
-          state = WAIT_FOR_COIN;                                                                  // o next_state � o estado "WAIT_FOR_COIN"
+          state = WAIT_FOR_COIN;                                                                  // o next_state e o estado "WAIT_FOR_COIN"
           break;
           
 
