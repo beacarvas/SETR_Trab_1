@@ -1,0 +1,232 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.\+c@{main.\+c}}
+
+
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}  
+
+
+{\ttfamily \#include $<$zephyr.\+h$>$}\newline
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/adc.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$timing/timing.\+h$>$}\newline
+{\ttfamily \#include $<$sys/printk.\+h$>$}\newline
+{\ttfamily \#include $<$sys/\+\_\+\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/pwm.\+h$>$}\newline
+{\ttfamily \#include $<$hal/nrf\+\_\+saadc.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdata__item__t}{data\+\_\+item\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a6423a880df59733d2d9b509c7718d3a9}\label{main_8c_a6423a880df59733d2d9b509c7718d3a9}} 
+\#define {\bfseries S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~1024
+\item 
+\mbox{\Hypertarget{main_8c_a31053c68a0e734b4895eeab9c9f2f94a}\label{main_8c_a31053c68a0e734b4895eeab9c9f2f94a}} 
+\#define {\bfseries thread\+\_\+\+Sample\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a480f441d854c258956d5e3376ed41a35}\label{main_8c_a480f441d854c258956d5e3376ed41a35}} 
+\#define {\bfseries thread\+\_\+\+Filter\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a8f4b5b309323bacc7b29dca5c6f602f9}\label{main_8c_a8f4b5b309323bacc7b29dca5c6f602f9}} 
+\#define {\bfseries thread\+\_\+\+Out\+Signal\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a7829e7c5c37ea8a78e879aa2028dfb21}\label{main_8c_a7829e7c5c37ea8a78e879aa2028dfb21}} 
+\#define {\bfseries S\+A\+M\+P\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+MS}~1000
+\item 
+\mbox{\Hypertarget{main_8c_a667158ed9af1b72bf062e54bda71dd4f}\label{main_8c_a667158ed9af1b72bf062e54bda71dd4f}} 
+\#define {\bfseries A\+D\+C\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(adc)
+\item 
+\mbox{\Hypertarget{main_8c_a00978ca9e8220475258dcbbbb7d29129}\label{main_8c_a00978ca9e8220475258dcbbbb7d29129}} 
+\#define {\bfseries A\+D\+C\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}~10
+\item 
+\mbox{\Hypertarget{main_8c_a2bbc7e1578f01928d36ef7fa94ac4905}\label{main_8c_a2bbc7e1578f01928d36ef7fa94ac4905}} 
+\#define {\bfseries A\+D\+C\+\_\+\+G\+A\+IN}~A\+D\+C\+\_\+\+G\+A\+I\+N\+\_\+1\+\_\+4
+\item 
+\mbox{\Hypertarget{main_8c_a317868c528ebe27fbca094a8bc2d910c}\label{main_8c_a317868c528ebe27fbca094a8bc2d910c}} 
+\#define {\bfseries A\+D\+C\+\_\+\+R\+E\+F\+E\+R\+E\+N\+CE}~A\+D\+C\+\_\+\+R\+E\+F\+\_\+\+V\+D\+D\+\_\+1\+\_\+4
+\item 
+\mbox{\Hypertarget{main_8c_aeb8de5967ac4465f35317d818eeb129b}\label{main_8c_aeb8de5967ac4465f35317d818eeb129b}} 
+\#define {\bfseries A\+D\+C\+\_\+\+A\+C\+Q\+U\+I\+S\+I\+T\+I\+O\+N\+\_\+\+T\+I\+ME}~A\+D\+C\+\_\+\+A\+C\+Q\+\_\+\+T\+I\+ME(A\+D\+C\+\_\+\+A\+C\+Q\+\_\+\+T\+I\+M\+E\+\_\+\+M\+I\+C\+R\+O\+S\+E\+C\+O\+N\+DS, 40)
+\item 
+\mbox{\Hypertarget{main_8c_a8bfca74ee546715af6682194ea92286a}\label{main_8c_a8bfca74ee546715af6682194ea92286a}} 
+\#define {\bfseries A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+ID}~1
+\item 
+\mbox{\Hypertarget{main_8c_a5508ef7e762284248c2e87e16865522e}\label{main_8c_a5508ef7e762284248c2e87e16865522e}} 
+\#define {\bfseries A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+N\+P\+UT}~N\+R\+F\+\_\+\+S\+A\+A\+D\+C\+\_\+\+I\+N\+P\+U\+T\+\_\+\+A\+I\+N1
+\item 
+\mbox{\Hypertarget{main_8c_a6b20d41d6252e9871430c242cb1a56e7}\label{main_8c_a6b20d41d6252e9871430c242cb1a56e7}} 
+\#define {\bfseries B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~1
+\item 
+\mbox{\Hypertarget{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}\label{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}} 
+\#define {\bfseries G\+P\+I\+O0\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(gpio0)
+\item 
+\mbox{\Hypertarget{main_8c_ab48b150a8660d0152dfde25b42c1755f}\label{main_8c_ab48b150a8660d0152dfde25b42c1755f}} 
+\#define {\bfseries P\+W\+M0\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(pwm0)
+\item 
+\mbox{\Hypertarget{main_8c_a66e62e873d067860b696a1f47b60916a}\label{main_8c_a66e62e873d067860b696a1f47b60916a}} 
+\#define {\bfseries B\+O\+A\+R\+D\+L\+E\+D\+\_\+\+P\+IN}~D\+T\+\_\+\+P\+R\+OP(P\+W\+M0\+\_\+\+N\+ID, ch0\+\_\+pin)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a679019198c4301bc7ce3a4d7271b96d6}\label{main_8c_a679019198c4301bc7ce3a4d7271b96d6}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Sample\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_ac88da4a85d414d83ed6be0ee5601abdd}\label{main_8c_ac88da4a85d414d83ed6be0ee5601abdd}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Filter\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_a06788c21e13c5cb5203075e775fc2cf1}\label{main_8c_a06788c21e13c5cb5203075e775fc2cf1}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Out\+Signal\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+void \hyperlink{main_8c_a7c9fc74680f1af6c1f3db7e8814d3abc}{thread\+\_\+\+Sample\+\_\+code} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da \hyperlink{main_8c_a7c9fc74680f1af6c1f3db7e8814d3abc}{thread\+\_\+\+Sample\+\_\+code()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a014ea8f3db9abd3ff463d518e6a46714}{thread\+\_\+\+Filter\+\_\+code} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da \hyperlink{main_8c_a014ea8f3db9abd3ff463d518e6a46714}{thread\+\_\+\+Filter\+\_\+code()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a4710c5b32be9ff1d43dba724e85e2fd1}{thread\+\_\+\+Out\+Signal\+\_\+code} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração \hyperlink{main_8c_a4710c5b32be9ff1d43dba724e85e2fd1}{thread\+\_\+\+Out\+Signal\+\_\+code()} \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main} (void)
+\begin{DoxyCompactList}\small\item\em Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a8cfe112ca95d6f3da54e46729ce645e2}\label{main_8c_a8cfe112ca95d6f3da54e46729ce645e2}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Sample\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_a37eac1121902eeb1958bbb577d638aec}\label{main_8c_a37eac1121902eeb1958bbb577d638aec}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Filter\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_ac6c9858926fdd627a755487dea2d8dae}\label{main_8c_ac6c9858926fdd627a755487dea2d8dae}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Out\+Signal\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_af7351d399c007c6a838191a5241239db}\label{main_8c_af7351d399c007c6a838191a5241239db}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Sample\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_ae91c3e3631278f2651f4b36d271f58a0}\label{main_8c_ae91c3e3631278f2651f4b36d271f58a0}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Filter\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_aeb81d49da4e6faacee9860f3074cf039}\label{main_8c_aeb81d49da4e6faacee9860f3074cf039}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Out\+Signal\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_a31e5c9fb5c4b978fc5ff022756dbb049}\label{main_8c_a31e5c9fb5c4b978fc5ff022756dbb049}} 
+struct k\+\_\+fifo {\bfseries fifo\+\_\+\+SF}
+\item 
+\mbox{\Hypertarget{main_8c_aa8f50e0f677aae2f3239dcd47c581c4a}\label{main_8c_aa8f50e0f677aae2f3239dcd47c581c4a}} 
+struct k\+\_\+fifo {\bfseries fifo\+\_\+\+FO}
+\item 
+\mbox{\Hypertarget{main_8c_a445f79326d40128ece59a749adff6894}\label{main_8c_a445f79326d40128ece59a749adff6894}} 
+const struct device $\ast$ {\bfseries adc\+\_\+dev} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} 
+
+Este ficheiro contém a \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}, função onde são criadas e inicializadas as threads do nosso trabalho, as configurações do módulo de A\+DC e de P\+WM necessárias e, ainda, as funções para cada thread. Neste caso, a comunicação entre threads é feita através de fifos. ~\newline
+ Inicialmente, é lida a tensão de entrada, usando o pino analógico A0 através do módulo A\+DC, sendo esta de seguida filtrada, onde são eliminadas as 10 últimas amostras com um desvio de 10\% ou superior do valor médio e calculado o valor médio com as restantes amostras. Por fim, é feito o ajuste do duty-\/cycle do sinal P\+WM, com base no valor medido, ajustando o brilho do L\+ED 1. ~\newline
+
+
+\begin{DoxyAuthor}{Author}
+Beatriz Carvas ~\newline
+ D�rio Fernandes ~\newline
+ Guilherme Cajeira 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 de maio de 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]N�o h� bugs \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Descrição da \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()} 
+
+Criação e inicialização das threads\+: ~\newline
+
+\begin{DoxyItemize}
+\item thread\+\_\+\+Sample\+: Thread periódica onde é feita a leitura da tensão na entrada (Período de amostragem = 1seg); ~\newline
+
+\item thread\+\_\+\+Filter\+: Thread esporádica onde são filtradas as amostras lidas; ~\newline
+
+\item thread\+\_\+\+Outsignal\+: Thread esporádica onde é atualizado o duty\+\_\+cycle do sinal P\+WM, ajustando o brilho do L\+E\+D1.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a014ea8f3db9abd3ff463d518e6a46714}\label{main_8c_a014ea8f3db9abd3ff463d518e6a46714}} 
+\index{main.\+c@{main.\+c}!thread\+\_\+\+Filter\+\_\+code@{thread\+\_\+\+Filter\+\_\+code}}
+\index{thread\+\_\+\+Filter\+\_\+code@{thread\+\_\+\+Filter\+\_\+code}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{thread\+\_\+\+Filter\+\_\+code()}{thread\_Filter\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Filter\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da \hyperlink{main_8c_a014ea8f3db9abd3ff463d518e6a46714}{thread\+\_\+\+Filter\+\_\+code()} 
+
+Função da thread esporádica que lê 10 amostras da A\+DC, calcula a sua média, filtra todos os valores iguais ou superiores a 10\% em relação ao valor da média calculada e por último, calcula novamente a média das amostras filtradas ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em pre\+\_\+filter} & Array que contém as 10 amostras lidas da A\+DC, antes do filtro \\
+\hline
+{\em pos\+\_\+filter} & Array que contém as amostras após a filtragem \\
+\hline
+{\em cnt} & Variável que contém o número de amostras no fifo \\
+\hline
+{\em data\+\_\+\+FO} & Valor da média das amostras após a filtragem \\
+\hline
+{\em fifo\+\_\+\+FO} & Fifo onde é armazenado o valor da média das amostras para ser lido pela thread de saída\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a4710c5b32be9ff1d43dba724e85e2fd1}\label{main_8c_a4710c5b32be9ff1d43dba724e85e2fd1}} 
+\index{main.\+c@{main.\+c}!thread\+\_\+\+Out\+Signal\+\_\+code@{thread\+\_\+\+Out\+Signal\+\_\+code}}
+\index{thread\+\_\+\+Out\+Signal\+\_\+code@{thread\+\_\+\+Out\+Signal\+\_\+code}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{thread\+\_\+\+Out\+Signal\+\_\+code()}{thread\_OutSignal\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Out\+Signal\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração \hyperlink{main_8c_a4710c5b32be9ff1d43dba724e85e2fd1}{thread\+\_\+\+Out\+Signal\+\_\+code()} 
+
+Função onde é feita a leiura dos valores filtrados (através da função k\+\_\+fifo\+\_\+get ), com estes valores são calculados os valores duty cycle para variar o sinal P\+WM, que será observado no L\+ED 1. \mbox{\Hypertarget{main_8c_a7c9fc74680f1af6c1f3db7e8814d3abc}\label{main_8c_a7c9fc74680f1af6c1f3db7e8814d3abc}} 
+\index{main.\+c@{main.\+c}!thread\+\_\+\+Sample\+\_\+code@{thread\+\_\+\+Sample\+\_\+code}}
+\index{thread\+\_\+\+Sample\+\_\+code@{thread\+\_\+\+Sample\+\_\+code}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{thread\+\_\+\+Sample\+\_\+code()}{thread\_Sample\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Sample\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da \hyperlink{main_8c_a7c9fc74680f1af6c1f3db7e8814d3abc}{thread\+\_\+\+Sample\+\_\+code()} 
+
+Função da thread periódica para a obtenção das amostras da A\+DC. Cada amostra obtida é, de seguida, convertida em tensão (Volts). ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+sample\+\_\+buffer} & Buffer que contém as amostras lidas da A\+DC. \\
+\hline
+{\em data\+\_\+\+SF} & Resultado da conversão do valor da A\+DC em tensão. \\
+\hline
+{\em fifo\+\_\+\+SF} & Fifo onde é armazenado o valor da tensão calculada para ser lido pela thread de filtragem.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}

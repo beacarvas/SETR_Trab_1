@@ -1,0 +1,15 @@
+/**
+
+@mainpage SETR Trabalho 4 documentação
+
+@brief Descrição do projeto: \n
+O objetivo principal deste trabalho é fazer alterar o brilho de um led mediante a tensão gerada pelo potenciómetro (variando entre (0-3) V). \n
+A tensão é obtida através da leitura da ADC, convertendo este valor para milivoltes (mV). \n
+O período de amostragem da ADC é de 1 seg, sendo feita uma filtragem das últimas 10 amostras, sendo eliminadas as amostras com um desvio de 10% ou superior
+ do valor médio e calculado o valor médio com as restantes. \n
+A variação do brilho do led é feita através de um sinal PWM, ao variar o seu duty-cycle. \n
+A implementação deste programa foi feita através de threads, sendo a comunicação entre os processos feita através de Semáforos + Memória partilhada.
+
+@author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
+
+*/

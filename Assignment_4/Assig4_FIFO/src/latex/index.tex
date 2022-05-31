@@ -1,0 +1,10 @@
+Descrição do projeto\+: ~\newline
+O objetivo principal deste trabalho é fazer alterar o brilho de um led mediante a tensão gerada pelo potenciómetro (variando entre (0-\/3) V). ~\newline
+A tensão é obtida através da leitura da A\+DC, convertendo este valor para milivoltes (mV). ~\newline
+O período de amostragem da A\+DC é de 1 seg, sendo feita uma filtragem das últimas 10 amostras, sendo eliminadas as amostras com um desvio de 10\% ou superior do valor médio e calculado o valor médio com as restantes. ~\newline
+A variação do brilho do led é feita através de um sinal P\+WM, ao variar o seu duty-\/cycle. ~\newline
+A implementação deste programa foi feita através de threads, sendo a comunicação entre os processos feita através de F\+I\+F\+Os.\begin{DoxyAuthor}{Author}
+Beatriz Carvas ~\newline
+ Dário Fernandes ~\newline
+ Guilherme Cajeira 
+\end{DoxyAuthor}
