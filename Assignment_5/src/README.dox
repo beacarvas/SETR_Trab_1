@@ -1,0 +1,16 @@
+/**
+
+@mainpage SETR Trabalho 5 documentação
+
+@brief Descrição do projeto: \n
+O objetivo principal deste trabalho é fazer alterar o brilho de um led em dois modos: manual ou automático. \n
+Através do modo manual, o brilho do LED é controlado manualmente através de dois dos botões da placa. Um para aumentar e outro para diminuir o brilho do LED. \n
+Através do modo automático, é pedido ao utilizador que programe o brilho do LED durante o dia, tendo este que introduzir os valores do brilho do LED desejados para todas as horas (0 a 23h). Caso não seja introduzido nenhum valor numa determinada hora, o LED ficará desligado. \n
+O controlo do brilho do LED no modo automático é feito através de um controlador P. \n
+A tensão é obtida através da leitura da ADC, com um período de amostragem de 1 seg. \n
+A variação do brilho do led é feita através de um sinal PWM, ao variar o seu duty-cycle. \n
+A implementação deste programa foi feita através de threads, sendo a comunicação entre os processos feita através de FIFOs.
+
+@author Beatriz Carvas \n Dário Fernandes \n Guilherme Cajeira
+
+*/

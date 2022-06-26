@@ -1,0 +1,508 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Descrição da \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}}  
+
+
+{\ttfamily \#include $<$zephyr.\+h$>$}\newline
+{\ttfamily \#include $<$device.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/adc.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/uart.\+h$>$}\newline
+{\ttfamily \#include $<$timing/timing.\+h$>$}\newline
+{\ttfamily \#include $<$sys/printk.\+h$>$}\newline
+{\ttfamily \#include $<$sys/\+\_\+\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$drivers/pwm.\+h$>$}\newline
+{\ttfamily \#include $<$console/console.\+h$>$}\newline
+{\ttfamily \#include $<$hal/nrf\+\_\+saadc.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__item__t}{data\+\_\+item\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_aabfdd434c3f5fc98789fd65dc741f3f5}\label{main_8c_aabfdd434c3f5fc98789fd65dc741f3f5}} 
+\#define {\bfseries M\+A\+I\+N\+\_\+\+S\+L\+E\+E\+P\+\_\+\+T\+I\+M\+E\+\_\+\+MS}~10 /$\ast$ Time between \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}}() activations $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_aa46777f75164fc107271e38f1f773e4d}\label{main_8c_aa46777f75164fc107271e38f1f773e4d}} 
+\#define {\bfseries F\+A\+T\+A\+L\+\_\+\+E\+RR}~-\/1 /$\ast$ Fatal error return code, app terminates $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a5a1ea1c93b9d5909b8dae955d03de583}\label{main_8c_a5a1ea1c93b9d5909b8dae955d03de583}} 
+\#define {\bfseries U\+A\+R\+T\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(uart0)    /$\ast$ U\+A\+RT Node label, see dts $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a630686ccbe0cb17e592951055a5da582}\label{main_8c_a630686ccbe0cb17e592951055a5da582}} 
+\#define {\bfseries R\+X\+B\+U\+F\+\_\+\+S\+I\+ZE}~60                   /$\ast$ RX buffer size $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a923af2d146f214e75816a7f5993cee29}\label{main_8c_a923af2d146f214e75816a7f5993cee29}} 
+\#define {\bfseries T\+X\+B\+U\+F\+\_\+\+S\+I\+ZE}~60                   /$\ast$ TX buffer size $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_ab6426fc74901f4fbec94862ebb672b81}\label{main_8c_ab6426fc74901f4fbec94862ebb672b81}} 
+\#define {\bfseries R\+X\+\_\+\+T\+I\+M\+E\+O\+UT}~1000                 /$\ast$ Inactivity period after the instant when last char was received that triggers an rx event (in us) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a6423a880df59733d2d9b509c7718d3a9}\label{main_8c_a6423a880df59733d2d9b509c7718d3a9}} 
+\#define {\bfseries S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~1024
+\item 
+\mbox{\Hypertarget{main_8c_a0f0177ad7b962b1d5558691124bd1f87}\label{main_8c_a0f0177ad7b962b1d5558691124bd1f87}} 
+\#define {\bfseries thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a563355e222abdae6e64c12d04cd18f8c}\label{main_8c_a563355e222abdae6e64c12d04cd18f8c}} 
+\#define {\bfseries thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_abd4e7052ed948196c10812a81e5450f9}\label{main_8c_abd4e7052ed948196c10812a81e5450f9}} 
+\#define {\bfseries thread\+\_\+\+Insert\+\_\+\+Value\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a06bce4d00fc4719da2b4cd02ea7b5955}\label{main_8c_a06bce4d00fc4719da2b4cd02ea7b5955}} 
+\#define {\bfseries thread\+\_\+\+Controlador\+P\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a67c1cf61f8f086ff384225059c2c83b5}\label{main_8c_a67c1cf61f8f086ff384225059c2c83b5}} 
+\#define {\bfseries thread\+\_\+\+Calendario\+\_\+prio}~1
+\item 
+\mbox{\Hypertarget{main_8c_a7829e7c5c37ea8a78e879aa2028dfb21}\label{main_8c_a7829e7c5c37ea8a78e879aa2028dfb21}} 
+\#define {\bfseries S\+A\+M\+P\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+MS}~1000
+\item 
+\mbox{\Hypertarget{main_8c_a7916e7e2e7ed9a97cb9d2dd8cfa1fecd}\label{main_8c_a7916e7e2e7ed9a97cb9d2dd8cfa1fecd}} 
+\#define {\bfseries S\+A\+M\+P\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+C}~30000
+\item 
+\mbox{\Hypertarget{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}\label{main_8c_a4c0e6f34369bef1deb3a9efae6ac14fb}} 
+\#define {\bfseries G\+P\+I\+O0\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(gpio0)
+\item 
+\mbox{\Hypertarget{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}\label{main_8c_ad3c05b8933cd253785fdd123f6dbfc18}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T1}~11 /$\ast$ Pin at which B\+U\+T1 is connected. Addressing is direct (i.\+e., pin number) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a590d906828bd5948fafbef47dc1c3b0c}\label{main_8c_a590d906828bd5948fafbef47dc1c3b0c}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T2}~12 /$\ast$ Pin at which B\+U\+T2 is connected. Addressing is direct (i.\+e., pin number) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a2e82ac21050552495e5a8551178bf258}\label{main_8c_a2e82ac21050552495e5a8551178bf258}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T3}~24 /$\ast$ Pin at which B\+U\+T3 is connected. Addressing is direct (i.\+e., pin number) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_abee96e1280405ff973ee2b6b07eec104}\label{main_8c_abee96e1280405ff973ee2b6b07eec104}} 
+\#define {\bfseries B\+O\+A\+R\+D\+B\+U\+T4}~25 /$\ast$ Pin at which B\+U\+T4 is connected. Addressing is direct (i.\+e., pin number) $\ast$/
+\item 
+\mbox{\Hypertarget{main_8c_a667158ed9af1b72bf062e54bda71dd4f}\label{main_8c_a667158ed9af1b72bf062e54bda71dd4f}} 
+\#define {\bfseries A\+D\+C\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(adc)
+\item 
+\mbox{\Hypertarget{main_8c_a00978ca9e8220475258dcbbbb7d29129}\label{main_8c_a00978ca9e8220475258dcbbbb7d29129}} 
+\#define {\bfseries A\+D\+C\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}~10
+\item 
+\mbox{\Hypertarget{main_8c_a2bbc7e1578f01928d36ef7fa94ac4905}\label{main_8c_a2bbc7e1578f01928d36ef7fa94ac4905}} 
+\#define {\bfseries A\+D\+C\+\_\+\+G\+A\+IN}~A\+D\+C\+\_\+\+G\+A\+I\+N\+\_\+1\+\_\+4
+\item 
+\mbox{\Hypertarget{main_8c_a317868c528ebe27fbca094a8bc2d910c}\label{main_8c_a317868c528ebe27fbca094a8bc2d910c}} 
+\#define {\bfseries A\+D\+C\+\_\+\+R\+E\+F\+E\+R\+E\+N\+CE}~A\+D\+C\+\_\+\+R\+E\+F\+\_\+\+V\+D\+D\+\_\+1\+\_\+4
+\item 
+\mbox{\Hypertarget{main_8c_aeb8de5967ac4465f35317d818eeb129b}\label{main_8c_aeb8de5967ac4465f35317d818eeb129b}} 
+\#define {\bfseries A\+D\+C\+\_\+\+A\+C\+Q\+U\+I\+S\+I\+T\+I\+O\+N\+\_\+\+T\+I\+ME}~A\+D\+C\+\_\+\+A\+C\+Q\+\_\+\+T\+I\+ME(A\+D\+C\+\_\+\+A\+C\+Q\+\_\+\+T\+I\+M\+E\+\_\+\+M\+I\+C\+R\+O\+S\+E\+C\+O\+N\+DS, 40)
+\item 
+\mbox{\Hypertarget{main_8c_a8bfca74ee546715af6682194ea92286a}\label{main_8c_a8bfca74ee546715af6682194ea92286a}} 
+\#define {\bfseries A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+ID}~1
+\item 
+\mbox{\Hypertarget{main_8c_a5508ef7e762284248c2e87e16865522e}\label{main_8c_a5508ef7e762284248c2e87e16865522e}} 
+\#define {\bfseries A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+N\+P\+UT}~N\+R\+F\+\_\+\+S\+A\+A\+D\+C\+\_\+\+I\+N\+P\+U\+T\+\_\+\+A\+I\+N1
+\item 
+\mbox{\Hypertarget{main_8c_a6b20d41d6252e9871430c242cb1a56e7}\label{main_8c_a6b20d41d6252e9871430c242cb1a56e7}} 
+\#define {\bfseries B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~1
+\item 
+\mbox{\Hypertarget{main_8c_ab48b150a8660d0152dfde25b42c1755f}\label{main_8c_ab48b150a8660d0152dfde25b42c1755f}} 
+\#define {\bfseries P\+W\+M0\+\_\+\+N\+ID}~D\+T\+\_\+\+N\+O\+D\+E\+L\+A\+B\+EL(pwm0)
+\item 
+\mbox{\Hypertarget{main_8c_a66e62e873d067860b696a1f47b60916a}\label{main_8c_a66e62e873d067860b696a1f47b60916a}} 
+\#define {\bfseries B\+O\+A\+R\+D\+L\+E\+D\+\_\+\+P\+IN}~D\+T\+\_\+\+P\+R\+OP(P\+W\+M0\+\_\+\+N\+ID, ch0\+\_\+pin)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ab5b2eb7c61969e61bef72eeb48dd058d}\label{main_8c_ab5b2eb7c61969e61bef72eeb48dd058d}} 
+void {\bfseries configure\+\_\+uart} (void)
+\item 
+\mbox{\Hypertarget{main_8c_a6867f4cca3d99a61fc3e4694650f39c8}\label{main_8c_a6867f4cca3d99a61fc3e4694650f39c8}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_a90e89e0c5e0d70e8902131ae77f925d0}\label{main_8c_a90e89e0c5e0d70e8902131ae77f925d0}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_a90306cf1d794f33bd40e8dea8e30eb70}\label{main_8c_a90306cf1d794f33bd40e8dea8e30eb70}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Insert\+\_\+\+Value\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_a929de3dbe7f94ed932b106dfca69c87f}\label{main_8c_a929de3dbe7f94ed932b106dfca69c87f}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Controlador\+P\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+\mbox{\Hypertarget{main_8c_a7f8b4c55a638bdbedc8e6274c724aa7d}\label{main_8c_a7f8b4c55a638bdbedc8e6274c724aa7d}} 
+{\bfseries K\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+F\+I\+NE} (thread\+\_\+\+Calendario\+\_\+stack, S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE)
+\item 
+void \mbox{\hyperlink{main_8c_a98f74c238e267f88c13289edcab3a2b9}{thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da \mbox{\hyperlink{main_8c_a98f74c238e267f88c13289edcab3a2b9}{thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+code()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae29895347497403c5f71d16b739fde6f}{thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da \mbox{\hyperlink{main_8c_ae29895347497403c5f71d16b739fde6f}{thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+code()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a933249ce2cfe73e06623d8a1295479e2}{thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuraçãoo \mbox{\hyperlink{main_8c_a933249ce2cfe73e06623d8a1295479e2}{thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a3d5ac9fc501997e3e661dd3317d0a386}{thread\+\_\+\+Controlador\+P\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da função de configuração da \mbox{\hyperlink{main_8c_a3d5ac9fc501997e3e661dd3317d0a386}{thread\+\_\+\+Controlador\+P\+\_\+code()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a9b56d46175cdd6294ef89dcdaeac32c2}{thread\+\_\+\+Calendario\+\_\+code}} (void $\ast$argA, void $\ast$argB, void $\ast$argC)
+\begin{DoxyCompactList}\small\item\em Descrição da \mbox{\hyperlink{main_8c_a9b56d46175cdd6294ef89dcdaeac32c2}{thread\+\_\+\+Calendario\+\_\+code()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a36b3d43c12bc9091419b0313b123a984}\label{main_8c_a36b3d43c12bc9091419b0313b123a984}} 
+void {\bfseries configure\+\_\+pins\+\_\+board} (void)
+\item 
+\mbox{\Hypertarget{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}\label{main_8c_ae7d90a3db3be4d74a95d59cb9bc36764}} 
+void {\bfseries but1press\+\_\+cbfunction} (const struct device $\ast$dev, struct gpio\+\_\+callback $\ast$cb, uint32\+\_\+t pins)
+\item 
+void \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Descrição da \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a9786dd6a7105357cad49ad8eec273c15}{block\+\_\+print}} = 0
+\begin{DoxyCompactList}\small\item\em Flag que quando ativada (block\+\_\+print = 1) bloqueia todos os prints enquanto são introduzidos valores na thread \mbox{\hyperlink{main_8c_a933249ce2cfe73e06623d8a1295479e2}{thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code()}}. \end{DoxyCompactList}\item 
+volatile int \mbox{\hyperlink{main_8c_af8265742cf0fd4ebe20e3f78aa79531a}{u}} = 0
+\begin{DoxyCompactList}\small\item\em Sinal de controlo do controlador P. \end{DoxyCompactList}\item 
+volatile int \mbox{\hyperlink{main_8c_aa31cdd06723ceea6571330810625af1b}{setpoint}} = -\/1
+\begin{DoxyCompactList}\small\item\em Variável do controlador com o valor introduzido pelo utilizador para o brilho do L\+ED. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a846de3054c899e0c47488f92bdff8637}{Brilho}} = 0
+\begin{DoxyCompactList}\small\item\em Valor introduzido pelo utilizador para o Brilho. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_af59c67fb2cb37b843493767aa526663c}{Hora}} = 0
+\begin{DoxyCompactList}\small\item\em Valor introduzido pelo utilizador para a hora. \end{DoxyCompactList}\item 
+volatile int \mbox{\hyperlink{main_8c_a0680f85ca8b2902b7d070b666149c466}{luz}} = 0
+\begin{DoxyCompactList}\small\item\em Valor a incrementar/decrementar ao duty-\/cycle no modo manual. \end{DoxyCompactList}\item 
+volatile int \mbox{\hyperlink{main_8c_aeab0d7c5e7d5008a33bde6def2d2ef90}{auto\+\_\+flag}} = 0
+\begin{DoxyCompactList}\small\item\em Flag que indica quando o modo automático é ativado (auto\+\_\+flag = 1 quando o modo é selecionado). \end{DoxyCompactList}\item 
+volatile int \mbox{\hyperlink{main_8c_a3ebd0f387abd8e0f8b284f7433de1a3b}{man\+\_\+flag}} = 0
+\begin{DoxyCompactList}\small\item\em Flag que indica quando o modo manual é ativado (man\+\_\+flag = 1 quando modo é selecionado). \end{DoxyCompactList}\item 
+const struct uart\+\_\+config {\bfseries uart\+\_\+cfg}
+\item 
+\mbox{\Hypertarget{main_8c_a660f23134aaae43c9ff2c6096fa59342}\label{main_8c_a660f23134aaae43c9ff2c6096fa59342}} 
+const struct device $\ast$ {\bfseries uart\+\_\+dev}
+\item 
+\mbox{\Hypertarget{main_8c_a8602e618ecd67a430b4e7582fd69bd51}\label{main_8c_a8602e618ecd67a430b4e7582fd69bd51}} 
+volatile int {\bfseries uart\+\_\+rx\+\_\+rdy\+\_\+flag}
+\item 
+\mbox{\Hypertarget{main_8c_aa10d925c769d61749a2c03cbc08accf9}\label{main_8c_aa10d925c769d61749a2c03cbc08accf9}} 
+uint8\+\_\+t {\bfseries welcome\+\_\+mesg} \mbox{[}$\,$\mbox{]} = \char`\"{}U\+A\+RT demo\+: Type a few chars in a row and then pause for a little while ...\textbackslash{}n\textbackslash{}r\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a6ce68847c12434f60d1b2654a3dc3409}\label{main_8c_a6ce68847c12434f60d1b2654a3dc3409}} 
+int {\bfseries err} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a3a480200b92d24ef74a3d1673fe80352}\label{main_8c_a3a480200b92d24ef74a3d1673fe80352}} 
+uint8\+\_\+t {\bfseries rep\+\_\+mesg} \mbox{[}T\+X\+B\+U\+F\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a13888fb95302bc6cad26846513d423dc}\label{main_8c_a13888fb95302bc6cad26846513d423dc}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_a6b26e685d278a3cddbb7462038505af7}\label{main_8c_a6b26e685d278a3cddbb7462038505af7}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_aa27246d7791dbe8daba64f17b06d06cc}\label{main_8c_aa27246d7791dbe8daba64f17b06d06cc}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Insert\+\_\+\+Value\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_abb01f5e981123db77ae491bb75793919}\label{main_8c_abb01f5e981123db77ae491bb75793919}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Controlador\+P\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_a7555430d89ad1e62f674f3480bf4d199}\label{main_8c_a7555430d89ad1e62f674f3480bf4d199}} 
+struct k\+\_\+thread {\bfseries thread\+\_\+\+Calendario\+\_\+data}
+\item 
+\mbox{\Hypertarget{main_8c_a21b9b850edc573caaddf1dac5529e35e}\label{main_8c_a21b9b850edc573caaddf1dac5529e35e}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_a1f8d3a1335834af75769a5992bafa473}\label{main_8c_a1f8d3a1335834af75769a5992bafa473}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_a56184fe548401ec89133e0a666736925}\label{main_8c_a56184fe548401ec89133e0a666736925}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Insert\+\_\+\+Value\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_af75614d9c3da80b3b74b97f02ecfd927}\label{main_8c_af75614d9c3da80b3b74b97f02ecfd927}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Controlador\+P\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_a7ad9df6da31608c91354addad3ad3867}\label{main_8c_a7ad9df6da31608c91354addad3ad3867}} 
+k\+\_\+tid\+\_\+t {\bfseries thread\+\_\+\+Calendario\+\_\+tid}
+\item 
+\mbox{\Hypertarget{main_8c_a5fb1eb4987b96fa79258a436387ed0ad}\label{main_8c_a5fb1eb4987b96fa79258a436387ed0ad}} 
+struct k\+\_\+fifo {\bfseries fifo\+\_\+\+A\+D\+C\+\_\+\+P\+WM}
+\item 
+\mbox{\Hypertarget{main_8c_a2989835f863453395dce5cde2eef79d4}\label{main_8c_a2989835f863453395dce5cde2eef79d4}} 
+struct k\+\_\+fifo {\bfseries fifo\+\_\+\+P\+W\+M\+\_\+P}
+\item 
+\mbox{\Hypertarget{main_8c_a3bc07e4d06ee2d8fed78633282ed5ee1}\label{main_8c_a3bc07e4d06ee2d8fed78633282ed5ee1}} 
+struct k\+\_\+fifo {\bfseries fifo\+\_\+\+Calendario}
+\item 
+\mbox{\Hypertarget{main_8c_ac8529dec83e91f71d383fb84302cfb27}\label{main_8c_ac8529dec83e91f71d383fb84302cfb27}} 
+const struct device $\ast$ {\bfseries gpio0\+\_\+dev}
+\item 
+\mbox{\Hypertarget{main_8c_a6baa346e44f4c2158d2be4f9b77b8203}\label{main_8c_a6baa346e44f4c2158d2be4f9b77b8203}} 
+int {\bfseries ret} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a445f79326d40128ece59a749adff6894}\label{main_8c_a445f79326d40128ece59a749adff6894}} 
+const struct device $\ast$ {\bfseries adc\+\_\+dev} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Descrição da \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}} 
+
+Este programa foi desenvolvido por forma a implementar um sistema de controlo de iluminação de um L\+ED. O controlo do L\+ED tem dois modos\+: manual e automático. No modo manual é ajustado o brilho do led manualmente pelo utiizador, aumentando ou diminuindo o brilho através dos botões da P\+IC. ~\newline
+No modo automático é feita a programação do brilho do led ao longo de um dia (cada hora, de 0-\/23h, é programável). O ajuste do brilho para uma dada hora será feito através de um controlador P que irá calcular o erro entre o valor definido pelo utilizador para uma dada hora e o brilho atual do led, medido pelo fototransistor. ~\newline
+O Sistema foi implementado através de threads, sendo a comunicação entre processos feita através de F\+I\+F\+Os. ~\newline
+Foi ainda implementado o módulo de A\+DC para a leitura dos valores do fototransistor, com uma frequência de amostragem de 1Hz. ~\newline
+O sinal P\+WM gerado para alterar o brilho do L\+ED foi implementado com uma frequência de 10K\+Hz.
+
+\begin{DoxyAuthor}{Author}
+Beatriz Carvas ~\newline
+ Dário Fernandes ~\newline
+ Guilherme Cajeira 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21 de junho de 2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]O controlo do brilho no modo automático não está a funcionar em condições. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Descrição da \mbox{\hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main()}} 
+
+Criação e inicialização das threads\+: ~\newline
+
+\begin{DoxyItemize}
+\item thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+: Thread periódica onde é feita a leitura da tensão na A\+DC (Período de amostragem = 1seg); ~\newline
+
+\item thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+: Thread esporádica onde é alterado o Duty-\/cycle do sinal P\+WM; ~\newline
+
+\item thread\+\_\+\+Insert\+\_\+\+Value\+: Thread esporádica onde são introduzidos os valores para programar o brilho do L\+ED no modo automático (Hora e Intensidade do brilho); ~\newline
+
+\item thread\+\_\+\+ControladorP\+: Thread esporádica onde é ajustado o brilho do L\+ED para um certo valor através de um controlador P; ~\newline
+
+\item thread\+\_\+\+Calendario\+: Thread periódica onde é implementado o calendário (neste caso horário diário). Aqui é definido qual o valor do brilho a que o L\+ED deve estar, consoante os valores introduzidos na thread\+\_\+\+Insert\+\_\+\+Value. A cada hora é alterado o valor do brilho definido, que será depois lido no controlador (Período = 30seg). ~\newline
+ \begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\mbox{\Hypertarget{main_8c_a98f74c238e267f88c13289edcab3a2b9}\label{main_8c_a98f74c238e267f88c13289edcab3a2b9}} 
+\index{main.c@{main.c}!thread\_ADC\_Sample\_code@{thread\_ADC\_Sample\_code}}
+\index{thread\_ADC\_Sample\_code@{thread\_ADC\_Sample\_code}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{thread\_ADC\_Sample\_code()}{thread\_ADC\_Sample\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da \mbox{\hyperlink{main_8c_a98f74c238e267f88c13289edcab3a2b9}{thread\+\_\+\+A\+D\+C\+\_\+\+Sample\+\_\+code()}} 
+
+Função da thread periódica para a obtenção das amostras da A\+DC. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em fifo\+\_\+\+A\+D\+C\+\_\+\+P\+WM} & Fifo da thread onde é escrito o valor da A\+DC lida. \\
+\hline
+{\em data\+\_\+\+A\+D\+C\+\_\+\+P\+WM} & Variável que escreve o valor da A\+DC no fifo da thread.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a9b56d46175cdd6294ef89dcdaeac32c2}\label{main_8c_a9b56d46175cdd6294ef89dcdaeac32c2}} 
+\index{main.c@{main.c}!thread\_Calendario\_code@{thread\_Calendario\_code}}
+\index{thread\_Calendario\_code@{thread\_Calendario\_code}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{thread\_Calendario\_code()}{thread\_Calendario\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Calendario\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da \mbox{\hyperlink{main_8c_a9b56d46175cdd6294ef89dcdaeac32c2}{thread\+\_\+\+Calendario\+\_\+code()}} 
+
+Função da thread periódica para a criação do calendario. O calendario, neste caso, é um horário diário, de 0 a 23h. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em Calendario} & Array de 24 posições, onde cada posição corresponde a uma hora do dia. \\
+\hline
+{\em Hora\+\_\+atual} & Variável que é incrementada a cada período da thread, simulando a passagem das horas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a3d5ac9fc501997e3e661dd3317d0a386}\label{main_8c_a3d5ac9fc501997e3e661dd3317d0a386}} 
+\index{main.c@{main.c}!thread\_ControladorP\_code@{thread\_ControladorP\_code}}
+\index{thread\_ControladorP\_code@{thread\_ControladorP\_code}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{thread\_ControladorP\_code()}{thread\_ControladorP\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Controlador\+P\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuração da \mbox{\hyperlink{main_8c_a3d5ac9fc501997e3e661dd3317d0a386}{thread\+\_\+\+Controlador\+P\+\_\+code()}} 
+
+Função da thread esporádica para a implementação do controlador P responsável por controlar o brilho do L\+ED no modo automático, consoante o valor do brilho introduzido pelo utilizador para uma certa hora. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em Kp} & Ganho proporcional do controlador P. \\
+\hline
+{\em e} & Variável do erro entre o valor do brilho introduzido (setpoint) e o valor atual de duty-\/cycle do sinal P\+WM.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a933249ce2cfe73e06623d8a1295479e2}\label{main_8c_a933249ce2cfe73e06623d8a1295479e2}} 
+\index{main.c@{main.c}!thread\_Insert\_Value\_code@{thread\_Insert\_Value\_code}}
+\index{thread\_Insert\_Value\_code@{thread\_Insert\_Value\_code}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{thread\_Insert\_Value\_code()}{thread\_Insert\_Value\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da função de configuraçãoo \mbox{\hyperlink{main_8c_a933249ce2cfe73e06623d8a1295479e2}{thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code()}} 
+
+Função da thread esporádica onde é inserida a hora à qual se deseja alterar o brilho do L\+ED, assim como o brilho desejado. ~\newline
+Para entrar no menu que mudança de brilho do led, selecionar \textquotesingle{}b\textquotesingle{}. De seguida, introduzir a hora (entre 0 e 23h) e o brilho desejado (0 a 100\%). ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em c} & Variável que recebe o caractér introduzido no terminal. \\
+\hline
+{\em H} & Variável com a hora introduzida pelo utilizador. \\
+\hline
+{\em New\+\_\+\+Duty\+Cycle} & Variável com o valor do brilho introduzido pelo utilizador. \\
+\hline
+{\em i} & Variável para o ciclo while de introdução de valores.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_ae29895347497403c5f71d16b739fde6f}\label{main_8c_ae29895347497403c5f71d16b739fde6f}} 
+\index{main.c@{main.c}!thread\_PWM\_DutyCycle\_code@{thread\_PWM\_DutyCycle\_code}}
+\index{thread\_PWM\_DutyCycle\_code@{thread\_PWM\_DutyCycle\_code}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{thread\_PWM\_DutyCycle\_code()}{thread\_PWM\_DutyCycle\_code()}}
+{\footnotesize\ttfamily void thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{argA,  }\item[{void $\ast$}]{argB,  }\item[{void $\ast$}]{argC }\end{DoxyParamCaption})}
+
+
+
+Descrição da \mbox{\hyperlink{main_8c_ae29895347497403c5f71d16b739fde6f}{thread\+\_\+\+P\+W\+M\+\_\+\+Duty\+Cycle\+\_\+code()}} 
+
+Função da thread esporádica onde é feita a conversão do valor da A\+DC para duty-\/cycle. Este valor de duty-\/cycle é, de seguida, atualizado no sinal de saída P\+WM, ajustando o brilho do L\+ED. ~\newline
+Nesta thread é feito ainda a escolha do modo do sistema\+: modo manual ou automático. Com base no modo escolhido, o duty-\/cycle do sinal P\+WM pode ser alterado através de dois dos botões da placa (modo manual), ou escolhendo o brilho desejado através do terminal, sendo o valor do duty-\/cycle ajustado através de um controlador (modo automático). ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em fifo\+\_\+\+A\+D\+C\+\_\+\+P\+WM} & Fifo de onde é recebido o valor da A\+DC lido. \\
+\hline
+{\em fifo\+\_\+\+P\+W\+M\+\_\+P} & Fifo onde será escrito o valor atual do duty-\/cycle do sinal P\+WM, apenas no modo automático, para ser lido na thread do controlador. \\
+\hline
+{\em data\+\_\+\+A\+D\+C\+\_\+\+P\+WM} & Variável que recebe o valor do F\+I\+F\+O\+\_\+\+A\+D\+C\+\_\+\+P\+WM com o valor da A\+DC. \\
+\hline
+{\em data\+\_\+\+P\+W\+M\+\_\+P} & Variável com o valor de duty-\/cycle a ser escrito no fifo fifo\+\_\+\+P\+W\+M\+\_\+P. \\
+\hline
+{\em aux} & Soma do valor atual do duty-\/cyle com o valor de \textquotesingle{}luz\textquotesingle{} no modo manual.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_aeab0d7c5e7d5008a33bde6def2d2ef90}\label{main_8c_aeab0d7c5e7d5008a33bde6def2d2ef90}} 
+\index{main.c@{main.c}!auto\_flag@{auto\_flag}}
+\index{auto\_flag@{auto\_flag}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{auto\_flag}{auto\_flag}}
+{\footnotesize\ttfamily volatile int auto\+\_\+flag = 0}
+
+
+
+Flag que indica quando o modo automático é ativado (auto\+\_\+flag = 1 quando o modo é selecionado). 
+
+\mbox{\Hypertarget{main_8c_a9786dd6a7105357cad49ad8eec273c15}\label{main_8c_a9786dd6a7105357cad49ad8eec273c15}} 
+\index{main.c@{main.c}!block\_print@{block\_print}}
+\index{block\_print@{block\_print}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{block\_print}{block\_print}}
+{\footnotesize\ttfamily int block\+\_\+print = 0}
+
+
+
+Flag que quando ativada (block\+\_\+print = 1) bloqueia todos os prints enquanto são introduzidos valores na thread \mbox{\hyperlink{main_8c_a933249ce2cfe73e06623d8a1295479e2}{thread\+\_\+\+Insert\+\_\+\+Value\+\_\+code()}}. 
+
+\mbox{\Hypertarget{main_8c_a846de3054c899e0c47488f92bdff8637}\label{main_8c_a846de3054c899e0c47488f92bdff8637}} 
+\index{main.c@{main.c}!Brilho@{Brilho}}
+\index{Brilho@{Brilho}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Brilho}{Brilho}}
+{\footnotesize\ttfamily int Brilho = 0}
+
+
+
+Valor introduzido pelo utilizador para o Brilho. 
+
+\mbox{\Hypertarget{main_8c_af59c67fb2cb37b843493767aa526663c}\label{main_8c_af59c67fb2cb37b843493767aa526663c}} 
+\index{main.c@{main.c}!Hora@{Hora}}
+\index{Hora@{Hora}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Hora}{Hora}}
+{\footnotesize\ttfamily int Hora = 0}
+
+
+
+Valor introduzido pelo utilizador para a hora. 
+
+\mbox{\Hypertarget{main_8c_a0680f85ca8b2902b7d070b666149c466}\label{main_8c_a0680f85ca8b2902b7d070b666149c466}} 
+\index{main.c@{main.c}!luz@{luz}}
+\index{luz@{luz}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{luz}{luz}}
+{\footnotesize\ttfamily volatile int luz = 0}
+
+
+
+Valor a incrementar/decrementar ao duty-\/cycle no modo manual. 
+
+\mbox{\Hypertarget{main_8c_a3ebd0f387abd8e0f8b284f7433de1a3b}\label{main_8c_a3ebd0f387abd8e0f8b284f7433de1a3b}} 
+\index{main.c@{main.c}!man\_flag@{man\_flag}}
+\index{man\_flag@{man\_flag}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{man\_flag}{man\_flag}}
+{\footnotesize\ttfamily volatile int man\+\_\+flag = 0}
+
+
+
+Flag que indica quando o modo manual é ativado (man\+\_\+flag = 1 quando modo é selecionado). 
+
+\mbox{\Hypertarget{main_8c_aa31cdd06723ceea6571330810625af1b}\label{main_8c_aa31cdd06723ceea6571330810625af1b}} 
+\index{main.c@{main.c}!setpoint@{setpoint}}
+\index{setpoint@{setpoint}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{setpoint}{setpoint}}
+{\footnotesize\ttfamily volatile int setpoint = -\/1}
+
+
+
+Variável do controlador com o valor introduzido pelo utilizador para o brilho do L\+ED. 
+
+\mbox{\Hypertarget{main_8c_af8265742cf0fd4ebe20e3f78aa79531a}\label{main_8c_af8265742cf0fd4ebe20e3f78aa79531a}} 
+\index{main.c@{main.c}!u@{u}}
+\index{u@{u}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily volatile int u = 0}
+
+
+
+Sinal de controlo do controlador P. 
+
+\mbox{\Hypertarget{main_8c_acbbb8dc9e34f2cbd68792504dc18da81}\label{main_8c_acbbb8dc9e34f2cbd68792504dc18da81}} 
+\index{main.c@{main.c}!uart\_cfg@{uart\_cfg}}
+\index{uart\_cfg@{uart\_cfg}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{uart\_cfg}{uart\_cfg}}
+{\footnotesize\ttfamily const struct uart\+\_\+config uart\+\_\+cfg}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        .baudrate = 115200,}
+\DoxyCodeLine{        .parity = UART\_CFG\_PARITY\_NONE,}
+\DoxyCodeLine{        .stop\_bits = UART\_CFG\_STOP\_BITS\_1,}
+\DoxyCodeLine{        .data\_bits = UART\_CFG\_DATA\_BITS\_8,}
+\DoxyCodeLine{        .flow\_ctrl = UART\_CFG\_FLOW\_CTRL\_NONE}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
